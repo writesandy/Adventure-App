@@ -22,6 +22,7 @@ Share on Social Media
 Choose MainCourse/Dessert/Snacks
 Complexity of the Recipe
 barcode scanner
+picture of reciept to itemize items into your pantry
 
 Our APIs:
 https://developer.edamam.com/edamam-nutrition-api
