@@ -21,6 +21,7 @@ Link to Amazon Pantry for online
 Share on Social Media
 Choose MainCourse/Dessert/Snacks
 Complexity of the Recipe
+barcode scanner
 
 Our APIs:
 https://developer.edamam.com/edamam-nutrition-api
