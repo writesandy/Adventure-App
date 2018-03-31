@@ -48,3 +48,9 @@ function buildQueryURL() {
   }
 
   // END API QUERY BUILDER SECTION --- END API QUERY BUILDER SECTION ---  
+
+  // LOGIC TO GET THE INGREDIENTS FROM THE DOM 
+  
+  // select all inputIngredients text fields with jQuery
+  // and read the values into an array 
+  // all text fields holding ingredients should have the same name
