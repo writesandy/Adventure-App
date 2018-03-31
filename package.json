@@ -1,0 +1,26 @@
+{
+  "name": "groupproject",
+  "version": "1.0.0",
+  "description": "***Please do all your work on the develop branch, and then merge those changes into master*** 1. git checkout develop 2. git pull  3. Make your changes where you need them 4. Git add (the files you edited)  5. Git commit -m \"your commit message\"  6. git push",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rikkihon/GroupProject.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rikkihon/GroupProject/issues"
+  },
+  "homepage": "https://github.com/Rikkihon/GroupProject#readme",
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-less": "^4.0.0"
+  }
+}
