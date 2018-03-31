@@ -54,3 +54,10 @@ function buildQueryURL() {
   // select all inputIngredients text fields with jQuery
   // and read the values into an array 
   // all text fields holding ingredients should have the same name
+
+  // CODE FOR THE ORDER DELIVERY BUTTON USING THE GOOGLE MAPS API WITH THE PLACES LIBRARY
+
+  // service = new google.maps.places.PlacesService(map);
+  // service.textSearch(request, callback);
+
+  // more detailed documentation for passing text based search requests https://developers.google.com/maps/documentation/javascript/places#TextSearchRequests
