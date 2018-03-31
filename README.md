@@ -8,8 +8,8 @@
 6. git push 
 
 ***If your change is good to go into master branch***
-7. git checkout master 
-8. git merge develop 
+1. git checkout master 
+2. git merge develop 
 (This takes any changes from DEVELOP and merges them IN TO master) 
 
 ***If you accidentally make changes to master, please pull them back to dev***
