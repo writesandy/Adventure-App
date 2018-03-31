@@ -34,6 +34,7 @@ var database = firebase.database();
 // variable = snapshot.val().KeyValueIdentifierFromDatabase;
 
 // what can/should we use the database for? 
+
 // IDEAS: 
 // 1. We could do a "X number of recipes searched so far" counter 
 // 2. We could write localStorage data to the database and retrieve it when someone reconnects
