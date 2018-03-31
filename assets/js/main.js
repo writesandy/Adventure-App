@@ -37,13 +37,10 @@ var database = firebase.database();
 function buildQueryURL() {
     
     // queryURL is the url we'll use to query the API
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    var queryURL = "ourAPI";
     
     // anything else we need to build the query goes here...
-  
     return queryURL;
   }
 
-  // END API QUERY BUILDER SECTION --- END API QUERY BUILDER SECTION ---
-
-  
+  // END API QUERY BUILDER SECTION --- END API QUERY BUILDER SECTION ---  
