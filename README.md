@@ -12,7 +12,7 @@
 2. git merge develop 
 (This takes any changes from DEVELOP and merges them IN TO master) 
 
-***If you accidentally make changes to master, please pull them back to dev***
+***If you accidentally make changes directly to master, just make sure to pull them BACK to dev***
 1. git checkout develop
 2. git merge master 
 (This takes any changes from MASTER and merges them BACK TO develop)
