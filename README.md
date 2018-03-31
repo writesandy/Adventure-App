@@ -1,3 +1,22 @@
+# IMPORTANT: HOW TO WORK ON THE CODE
+***Please do all your work on the develop branch, and then merge those changes into master***
+1. git checkout develop
+2. git pull 
+3. Make your changes where you need them
+4. Git add (the files you edited) 
+5. Git commit -m "your commit message" 
+6. git push 
+
+***If your change is good to go into master branch***
+7. git checkout master 
+8. git merge develop 
+(This takes any changes from DEVELOP and merges them IN TO master) 
+
+***If you accidentally make changes to master, please pull them back to dev***
+1. git checkout develop
+2. git merge master 
+(This takes any changes from MASTER and merges them BACK TO develop)
+
 # GroupProject Recipe App
 This is our Recipe and Allergen/Dietery Preference App. 
 Saundra Rikki Brandon Joe Thomas
