@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!-- style for calorie ranger slider -->
+    <style>
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron" style="background-color:#f83f23" ;>
+            <h1 style="color:#ffffff" ;>Recipe Thingy</h1>
+
+        </div>
+
+        <!-- OPTIONAL Add code for eventual sign-up/log-in feature -->
+
+        <!-- div for ingredients input -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-9">
+                    <div class="container">
+
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ingredients">Ingredients</button>
+                        <div id="ingredients" class="collapse">
+                            <br>
+
+                            <form>
+                                <label>
+
+
+                                    <input type="text" placeholder="What's in your fridge?">
+                                </label>
+                            </form>
+                            <br>
+                            <div>
+                                <!-- DIV FOR LIST OF INGREDIENTS -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <!-- div for dietary restrictions/preferences -->
+            <div class="row">
+                <div class="col-sm-12 col-md-9">
+                    <div class="container">
+
+                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#preferences">Dietary Preferences</button>
+                        <div id="preferences" class="collapse">
+                            <div class="col-md-4">
+                                <br>
+                                <form>
+
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check" unchecked>
+                                            <span class="label-text">Option 01</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 02</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 03</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 04</span>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-md-4">
+                                <br>
+                                <form>
+
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 05</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 06</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 07</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 08</span>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-md-4">
+                                <br>
+                                <form>
+
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 09</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 10</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 11</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 12</span>
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br>
+
+
+                    <!-- div for calorie requirement slider -->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="container">
+
+                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#calorie">Calorie Requirements</button>
+                                <div id="calorie" class="collapse">
+
+                                    <br>
+
+
+                                    <div class="" "slidecontainer">
+                                        <input type="range" min="1" max="2000" value="800" class="slider" id="myRange">
+                                        <p>Max Calories:
+                                            <span id="calorieSlider"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <!-- DIV FOR RECIPE RESULTS -->
+                </div>
+            </div>
+
+
+
+
+            <!-- script for calorie range slider -->
+            <script>
+                let slider = document.getElementById("myRange");
+                let output = document.getElementById("calorieSlider");
+                output.innerHTML = slider.value;
+
+                slider.oninput = function () {
+                    output.innerHTML = this.value;
+                }
+            </script>
+</body>
+
+</html>
