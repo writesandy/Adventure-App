@@ -53,6 +53,9 @@ function buildQueryURL() {
     return queryURL;
   }
 
+
+  // we're going to have to make our API call using CURL url https://stackoverflow.com/questions/36756014/using-curl-to-make-ajax-call
+  // -H 'X-Mashape-Key: 4FEmgcoC9ZmshcPhJktTGdDBvHuEp1JalbejsnAA3CFG66uu08'
   // END API QUERY BUILDER SECTION --- END API QUERY BUILDER SECTION ---  
 
   // LOGIC TO GET THE INGREDIENTS FROM THE DOM 
