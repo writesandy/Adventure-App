@@ -1,6 +1,6 @@
 "use strict";
 
-// Initialize RapidAPI (the middleman to Spoonacular API)
+//Initialize RapidAPI (the middleman to Spoonacular API)
 //var RapidAPI = new require('rapidapi-connect');
 //var rapid = new RapidAPI('default-application_5abfa693e4b00687d3579d2a', '35797c0f-67c6-4386-9991-a3a8c18e340f');
 
@@ -13,6 +13,7 @@ var config = {
     storageBucket: "recipe-app-52f20.appspot.com",
     messagingSenderId: "1016364414039"
   };
+
 firebase.initializeApp(config);
 
 // create database object
