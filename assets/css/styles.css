@@ -35,3 +35,9 @@
         background: #4CAF50;
         cursor: pointer;
     }
+
+    html, body, #map{
+        height: 50%;
+        margin: 20px;
+        padding: 0px
+    }
