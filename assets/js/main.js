@@ -13,7 +13,7 @@ var config = {
     storageBucket: "recipe-app-52f20.appspot.com",
     messagingSenderId: "1016364414039"
   };
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 // create database object
 var database = firebase.database();
