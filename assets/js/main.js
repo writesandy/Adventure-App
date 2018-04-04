@@ -17,7 +17,30 @@ var config = {
 firebase.initializeApp(config);
 
 // create database object
-var database = firebase.database();
+const database = firebase.database();
+
+
+$.ajax({
+  type: 'GET',
+  url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&number=5&ingredients=apples%2Cflour%2Csugar%2Cmilk&limitLicense=true&ranking=2',
+
+
+  // important part //
+  headers: {
+    'X-Mashape-Key': 'GlBSyGZxQXmshuRk2RcbiWgLs60sp1k5OFrjsnKS0C6LXsEpMr',
+    'X-Mashape-Host': 'spoonacular-recipe-food-nutrition-v1.p.mashape.com'
+  }
+  // important part //
+
+
+})
+.then(res => console.log(res))
+.catch(err => console.error(err));
+// .done(function(data) {
+//   alert(data);
+// })
+
+
 
 // How to make something happen when a value changes in the database
 
