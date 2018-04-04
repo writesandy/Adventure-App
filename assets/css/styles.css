@@ -214,6 +214,13 @@ CONTENT STYLE
     width: 100%;
 }
 
+#map {
+    height: 500px;
+    width: 1200px;
+    margin: 20px;
+    padding: 0px
+}
+
 
 /* ---------------------------------------------------
 MEDIAQUERIES
