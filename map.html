@@ -24,6 +24,7 @@
         let request;
         let service;
         let markers = [];
+        
         function initialize() {
 
             // definitions
@@ -99,7 +100,7 @@
                 position: place.geometry.location
             });
             google.maps.event.addDomListener(marker, 'click', function() {
-                infoWindow.setContent(place.name);
+                infoWindow.setContent(place.name + '</strong><br>' + place.id);
                 infoWindow.open(map, this);
             });
             return marker;
