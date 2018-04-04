@@ -1,8 +1,8 @@
 "use strict";
 
-// Initialize RapidAPI (the middleman to Spoonacular API)
-var RapidAPI = new require('rapidapi-connect');
-var rapid = new RapidAPI('default-application_5abfa693e4b00687d3579d2a', '35797c0f-67c6-4386-9991-a3a8c18e340f');
+//Initialize RapidAPI (the middleman to Spoonacular API)
+//var RapidAPI = new require('rapidapi-connect');
+//var rapid = new RapidAPI('default-application_5abfa693e4b00687d3579d2a', '35797c0f-67c6-4386-9991-a3a8c18e340f');
 
 // Initialize the Firebase connection
 var config = {
@@ -13,7 +13,8 @@ var config = {
     storageBucket: "recipe-app-52f20.appspot.com",
     messagingSenderId: "1016364414039"
   };
-  firebase.initializeApp(config);
+
+firebase.initializeApp(config);
 
 // create database object
 var database = firebase.database();
@@ -53,6 +54,9 @@ function buildQueryURL() {
     return queryURL;
   }
 
+
+  // we're going to have to make our API call using CURL url https://stackoverflow.com/questions/36756014/using-curl-to-make-ajax-call
+  // -H 'X-Mashape-Key: 4FEmgcoC9ZmshcPhJktTGdDBvHuEp1JalbejsnAA3CFG66uu08'
   // END API QUERY BUILDER SECTION --- END API QUERY BUILDER SECTION ---  
 
   // LOGIC TO GET THE INGREDIENTS FROM THE DOM 
