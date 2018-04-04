@@ -9,202 +9,194 @@
     <!-- import Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <!-- import jQuery and Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--import RapidAPI (the middleman to our Spoonacular API)-->
-        <script src='https://s3.amazonaws.com/rapidapi-prod-fe_static/rapidapi.min.js'></script>
+    <script src='https://s3.amazonaws.com/rapidapi-prod-fe_static/rapidapi.min.js'></script>
     <!-- link the local css and js files -->
-        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
-        <script src="assets/js/main.js"></script>
-    <!-- Google Maps and Google Maps Places API Import --> 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSDzgTsHEU_AoRgZ1oyBPhCrM_j9cqpHs&libraries=places"></script>  
-    <!-- Google Maps Places documentation https://developers.google.com/maps/documentation/javascript/places -->  
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
+    <script src="assets/js/main.js"></script>
+    <!-- Google Maps and Google Maps Places API Import -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSDzgTsHEU_AoRgZ1oyBPhCrM_j9cqpHs&libraries=places"></script>
+    <!-- Google Maps Places documentation https://developers.google.com/maps/documentation/javascript/places -->
 </head>
+
 <body>
-    <div class="container">
-        <div class="jumbotron" style="background-color:#f83f23" ;>
-            <h1 style="color:#ffffff" ;>Recipe Thingy</h1>
-        </div>
 
-        <!-- OPTIONAL Add code for eventual sign-up/log-in feature -->
 
-        <!-- div for ingredients input -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-9">
-                    <div class="container">
 
-                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ingredients">Ingredients</button>
-                        <div id="ingredients" class="collapse">
-                            <br>
 
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>Recipe App</h1>
+            </div>
+
+            <ul class="list-unstyled components">
+
+
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Ingredients</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <br>
+                        <form>
+                            <label>
+
+                                <input type="text" placeholder="What's in your fridge?">
+                            </label>
+                        </form>
+
+                    </ul>
+                </li>
+                <li>
+
+                    <a href="#pageDietmenu" data-toggle="collapse" aria-expanded="false">Dietary Preferences</a>
+                    <ul class="collapse list-unstyled" id="pageDietmenu">
+                        <li>
                             <form>
-                                <label>
 
-
-                                    <input type="text" placeholder="What's in your fridge?">
-                                </label>
-                            </form>
-                            <br>
-                            <div>
-                                <!-- DIV FOR LIST OF INGREDIENTS -->
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <br>
-
-            <!-- div for dietary restrictions/preferences -->
-            <div class="row">
-                <div class="col-sm-12 col-md-9">
-                    <div class="container">
-
-                        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#preferences">Dietary Preferences</button>
-                        <div id="preferences" class="collapse">
-                            <div class="col-md-4">
-                                <br>
-                                <form>
-
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check" unchecked>
-                                            <span class="label-text">Option 01</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 02</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 03</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 04</span>
-                                        </label>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="col-md-4">
-                                <br>
-                                <form>
-
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 05</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 06</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 07</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 08</span>
-                                        </label>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="col-md-4">
-                                <br>
-                                <form>
-
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 09</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 10</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 11</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label>
-                                            <input type="checkbox" name="check">
-                                            <span class="label-text">Option 12</span>
-                                        </label>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <br>
-
-
-                    <!-- div for calorie requirement slider -->
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="container">
-
-                                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#calorie">Calorie Requirements</button>
-                                <div id="calorie" class="collapse">
-
-                                    <br>
-
-
-                                    <div class="" "slidecontainer">
-                                        <input type="range" min="1" max="2000" value="800" class="slider" id="myRange">
-                                        <p>Max Calories:
-                                            <span id="calorieSlider"></span>
-                                        </p>
-                                    </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check" unchecked>
+                                        <span class="label-text">Option 01</span>
+                                    </label>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check">
+                                        <span class="label-text">Option 02</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check">
+                                        <span class="label-text">Option 03</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check">
+                                        <span class="label-text">Option 04</span>
+                                    </label>
+                                </div>
 
-                </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check">
+                                        <span class="label-text">Option 05</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check">
+                                        <span class="label-text">Option 06</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check">
+                                        <span class="label-text">Option 07</span>
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label>
+                                        <input type="checkbox" name="check">
+                                        <span class="label-text">Option 08</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
 
 
-                <div>
+                    <li>
+                        <a href="#pageCalmenu" data-toggle="collapse" aria-expanded="false">Calorie Requirements</a>
+                        <ul class="collapse list-unstyled" id="pageCalmenu">
+                            <li>
+                                <a href="#">
+                                    <div id="calorie" class="collapse">
 
-                    <!-- DIV FOR RECIPE RESULTS -->
-                </div>
-            </div>
-            
-            <!-- script for calorie range slider -->
-            <script>
-                let slider = document.getElementById("myRange");
-                let output = document.getElementById("calorieSlider");
-                output.innerHTML = slider.value;
+                                        <div class="" "slidecontainer">
+                                            <input type="range" min="1" max="2000" value="800" class="slider" id="myRange">
+                                            <p>Max Calories:
+                                                <span id="calorieSlider"></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
 
-                slider.oninput = function () {
-                    output.innerHTML = this.value;
-                }
-            </script>
-    </body>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Order Take-Out</a>
+                    </li>
+            </ul>
+
+
+        </nav>
+    </div>
+
+
+
+
+
+    <div class="line"></div>
+    <div class="results">
+        <!-- Return to Top Button -->
+        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page"
+            data-toggle="tooltip" data-placement="left">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+
+        <!-- DIV FOR RECIPE RESULTS/ETC -->
+        <h2>Lorem Ipsum Dolor</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    </div>
+
+
+
+
+    </div>
+    </div>
+
+    <!-- script for calorie range slider -->
+    <script>
+        let slider = document.getElementById("myRange");
+        let output = document.getElementById("calorieSlider");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
+    </script>
+</body>
+
 </html>
