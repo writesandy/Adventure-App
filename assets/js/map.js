@@ -54,8 +54,8 @@ function createMarker(place) {
     });
 
     google.maps.event.addDomListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
-        infowindow.open(map, this);
+        infoWindow.setContent(place.name + '<br>' + place.id);
+        infoWindow.open(map, this);
     });
     return marker;
 }
