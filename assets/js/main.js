@@ -10,7 +10,7 @@ $(document).ready(function() {
     storageBucket: "localeventfinder-f4f1f.appspot.com",
     messagingSenderId: "107746642812"
   };
-  
+
   firebase.initializeApp(config);
   console.log("firebase database connection initialized");
   
