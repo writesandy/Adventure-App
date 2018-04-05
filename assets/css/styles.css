@@ -15,6 +15,10 @@ p {
     color: black;
 }
 
+.state-input {
+    color: black;
+}
+
 .form-check {
     width: 200px;
     position: relative;
@@ -101,7 +105,7 @@ SIDEBAR STYLE
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #f83f23;
+    background: #3FEEE6;
     color: #fff;
     transition: all 0.3s;
 }
@@ -112,12 +116,12 @@ SIDEBAR STYLE
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #f83f23;
+    background: #3FEEE6;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #f83f23;
+    border-bottom: 1px solid #3FEEE6;
 }
 
 #sidebar ul p {
@@ -132,14 +136,14 @@ SIDEBAR STYLE
 }
 
 #sidebar ul li a:hover {
-    color: rgb(213, 115, 115);
+    color: #55BCC9;
     background: #fff;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #f83f23;
+    background: #55BCC9;
 }
 
 
