@@ -38,12 +38,14 @@ $(document).ready(function() {
         getCoordinates(zip);
       });
 
-      // workspace for eventful API 
+    
+    
+  // workspace for eventful API
+  function buildQueryURL(){ 
+  let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference to hide our API key
+  let searchTerms = "rock";
+  let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
 
-let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference
-let searchTerms = "rock";
-let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerm}`;
 
-
-
+  }
   });
