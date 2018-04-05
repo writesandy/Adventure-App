@@ -11,6 +11,9 @@ $(document).ready(function() {
     messagingSenderId: "107746642812"
   };
 
+  let eventfulAPI = "";
+  let geoCodeKey="";
+
   firebase.initializeApp(config);
   console.log("firebase database connection initialized");
   
@@ -28,8 +31,15 @@ $(document).ready(function() {
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
   function getCoordinates(zipCode) {
-    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
-
+    
+    // read the value of gck from the database
+    database.ref().on("value", function(snapshot) {
+      let geoCodeKey = snapshot.val().gck;
+      console.log("gck is " + geoCodeKey);
+      return geoCodeKey;
+    });
+    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
+   
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -59,10 +69,12 @@ $(document).ready(function() {
     
   // workspace for eventful API
   function buildEventfulQueryURL(){ 
-  let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference to hide our API key
-  let searchTerms = "rock";
-  let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
-
-
-  }
+  database.ref().on("value", function(snapshot) {
+    eventfulAPI = snapshot.val().efk;
+    let searchTerms = "rock";
+    let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
+  });
+}
+buildEventfulQueryURL();
+getCoordinates(zipCode);
   });
