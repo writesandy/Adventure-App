@@ -37,4 +37,13 @@ $(document).ready(function() {
         console.log(zip);
         getCoordinates(zip);
       });
+
+      // workspace for eventful API 
+
+let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference
+let searchTerms = "rock";
+let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerm}`;
+
+
+
   });
