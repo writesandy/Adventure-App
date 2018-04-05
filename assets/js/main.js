@@ -19,9 +19,9 @@ $(document).ready(function() {
       dataType: "json",
       success: function(results){
       console.log(results);
-          // latitude = data.results[0].geometry.location.lat;
-          // longitude= data.results[0].geometry.location.lng;
-          // alert("Lat = "+latitude+"- Long = "+longitude);
+          latitude = data.results[0].geometry.location.lat;
+          longitude= data.results[0].geometry.location.lng;
+          alert("Lat = "+latitude+"- Long = "+longitude);
       }
 
     });
