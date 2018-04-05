@@ -27,6 +27,7 @@ function initialize() {
             }
         }
     }
+    //finds the type of place once the user location is determined
     request = {
         location: map.getCenter(),
         radius: 5000,
@@ -34,7 +35,7 @@ function initialize() {
     };
     // service.nearbySearch(request, callback);
 
-    // recenter map
+    // recenter map around user's location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             pos = {
@@ -58,7 +59,7 @@ function initialize() {
         handleLocationError(false, infoWindow, map.getCenter());
         }
 
-
+    // recenter the map and reload the places after the map has been dragged and released
     google.maps.event.addListener(map, 'dragend', function(event) {
         map.setCenter(event.latLng)
         clearResults(markers)
@@ -78,7 +79,9 @@ function initialize() {
 //     }
 // }
 
+//creates a marker for the places
 function createMarker(place) {
+    //customization of the icon happens at this line
     let iconImage    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(32, 32));
     const placeLoc = place.geometry.location;
     marker = new google.maps.Marker({
@@ -86,12 +89,14 @@ function createMarker(place) {
         icon: iconImage,
         position: place.geometry.location
     });
+    //opens the infoWindow to show name and other information
     google.maps.event.addDomListener(marker, 'click', function() {
         infoWindow.setContent(place.name + '<br>' + place.icon + '<br>' + place.formatted_address + '<br>' + place.place_id);
         infoWindow.open(map, this);
     });
     return marker;
 }
+//clears the markers when the map is moved so we don't keep leaving more and more markers
 function clearResults(markers) {
     for (let m in markers) {
         markers[m].setMap(null)
