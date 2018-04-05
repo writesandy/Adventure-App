@@ -32,7 +32,7 @@ function initialize() {
         radius: 5000,
         types: ['restaurant']
     };
-    service.nearbySearch(request, callback);
+    // service.nearbySearch(request, callback);
 
     // recenter map
     if (navigator.geolocation) {
@@ -84,7 +84,7 @@ function createMarker(place) {
         position: place.geometry.location
     });
     google.maps.event.addDomListener(marker, 'click', function() {
-        infoWindow.setContent(place.name);
+        infoWindow.setContent(place.name + '<br>' + place.id);
         infoWindow.open(map, this);
     });
     return marker;
