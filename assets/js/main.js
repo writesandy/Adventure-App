@@ -1,5 +1,46 @@
 $(document).ready(function() {
 
+// Variables for bringin in long/lat from Google Geocoding API
+
+  let category = [];
+  let postal = [];
+  let zipCode = $(this).attr("data-name");
+
+//checked the queryURL and it does bring back a value. Still working on working ajax call
+
+  function displayPlaces() {
+    let zipCode = $(this).attr("data-name");
+    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" +zipCode +"&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
+
+    $.ajax({
+      url : queryURL,
+      method: "POST",
+    }).then(function(response){
+      console.log(response);
+          // latitude = data.results[0].geometry.location.lat;
+          // longitude= data.results[0].geometry.location.lng;
+          // alert("Lat = "+latitude+"- Long = "+longitude);
+      });
+
+    }
+
+  
+
+  $('#getAdventure').on("click", function (event) {
+    event.preventDefault();
+    let zipCode = $(".zipCode").val().trim();
+    postal.push(zipCode);
+    console.log(zipCode);
+  })
+
+
+
+
+
+
+
+
+
 //Initialize RapidAPI (the middleman to Spoonacular API)
 //var RapidAPI = new require('rapidapi-connect');
 //var rapid = new RapidAPI('default-application_5abfa693e4b00687d3579d2a', '35797c0f-67c6-4386-9991-a3a8c18e340f');
@@ -84,16 +125,7 @@ function buildQueryURL() {
 
   // LOGIC TO GET THE INPUTS FROM THE DOM 
   
-  let category = [];
-  let postal = [];
-  let zipCode = $(this).attr("data-name");
 
-  $('#getAdventure').on("click", function (event) {
-    event.preventDefault();
-    let zipCode = $(".zipCode").val().trim();
-    postal.push(zipCode);
-    console.log(zipCode);
-  })
 
   
   // select all inputIngredients text fields with jQuery
