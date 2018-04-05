@@ -5,6 +5,8 @@ $(document).ready(function() {
   let category = [];
   let postal = [];
   let zipCode = $(this).attr("data-name");
+  const geocoder = new google.maps.Geocoder();
+
 
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
@@ -13,25 +15,26 @@ $(document).ready(function() {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" +zipCode +"&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
 
     $.ajax({
-      url : queryURL,
-      method: "POST",
-    }).then(function(response){
-      console.log(response);
+      url: queryURL,
+      method: "GET",
+      dataType: "json",
+      success: function(results){
+      console.log(results);
           // latitude = data.results[0].geometry.location.lat;
           // longitude= data.results[0].geometry.location.lng;
           // alert("Lat = "+latitude+"- Long = "+longitude);
-      });
+      }
 
-    }
-
+    });
   
+  }
 
-  $('#getAdventure').on("click", function (event) {
-    event.preventDefault();
-    let zipCode = $(".zipCode").val().trim();
-    postal.push(zipCode);
-    console.log(zipCode);
-  })
+      $('#getAdventure').on("click", function (event) {
+        event.preventDefault();
+        let zipCode = $(".zipCode").val().trim();
+        postal.push(zipCode);
+        console.log(zipCode);
+      });
 
 
 
@@ -139,4 +142,4 @@ function buildQueryURL() {
 
   // more detailed documentation for passing text based search requests https://developers.google.com/maps/documentation/javascript/places#TextSearchRequests
 
-});
+  });
