@@ -12,7 +12,7 @@ $(document).ready(function() {
 
   function displayPlaces() {
     let zipCode = $(this).attr("data-name");
-    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" +zipCode +"&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
+    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode +"&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
 
     $.ajax({
       url: queryURL,
