@@ -1,5 +1,22 @@
 $(document).ready(function() {
 
+
+  // Initialize Firebase connection
+  var config = {
+    apiKey: "AIzaSyAfvqfgBdfABlSoNcpqlbJMpmwPHp1vt-E",
+    authDomain: "localeventfinder-f4f1f.firebaseapp.com",
+    databaseURL: "https://localeventfinder-f4f1f.firebaseio.com",
+    projectId: "localeventfinder-f4f1f",
+    storageBucket: "localeventfinder-f4f1f.appspot.com",
+    messagingSenderId: "107746642812"
+  };
+  
+  firebase.initializeApp(config);
+  console.log("firebase database connection initialized");
+  
+  const database = firebase.database();
+  console.log("Local database variable assigned");
+
 // Variables for bringin in long/lat from Google Geocoding API
 
   let category = [];
