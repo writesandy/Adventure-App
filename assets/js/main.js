@@ -41,7 +41,7 @@ $(document).ready(function() {
     
     
   // workspace for eventful API
-  function buildQueryURL(){ 
+  function buildEventfulQueryURL(){ 
   let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference to hide our API key
   let searchTerms = "rock";
   let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
