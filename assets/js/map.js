@@ -77,14 +77,17 @@ function initialize() {
 //         }
 //     }
 // }
+
 function createMarker(place) {
+    let iconImage    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(32, 32));
     const placeLoc = place.geometry.location;
     marker = new google.maps.Marker({
         map: map,
+        icon: iconImage,
         position: place.geometry.location
     });
     google.maps.event.addDomListener(marker, 'click', function() {
-        infoWindow.setContent(place.name + '<br>' + place.id);
+        infoWindow.setContent(place.name + '<br>' + place.icon + '<br>' + place.formatted_address + '<br>' + place.place_id);
         infoWindow.open(map, this);
     });
     return marker;
