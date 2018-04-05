@@ -5,14 +5,13 @@ $(document).ready(function() {
   let category = [];
   let postal = [];
   let zipCode = $(this).attr("data-name");
-  const geocoder = new google.maps.Geocoder();
+
 
 
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
-  function displayPlaces() {
-    let zipCode = $(this).attr("data-name");
-    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" +zipCode +"&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
+  function getCoordinates(zipCode) {
+    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
 
     $.ajax({
       url: queryURL,
@@ -26,14 +25,17 @@ $(document).ready(function() {
       }
 
     });
+
+
   
   }
 
       $('#getAdventure').on("click", function (event) {
         event.preventDefault();
-        let zipCode = $(".zipCode").val().trim();
-        postal.push(zipCode);
-        console.log(zipCode);
+        let zip = $(".zipCode").val().trim();
+        postal.push(zip);
+        console.log(zip);
+        getCoordinates(zip);
       });
 
 
