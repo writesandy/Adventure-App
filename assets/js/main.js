@@ -13,6 +13,9 @@ $(document).ready(function() {
     messagingSenderId: "107746642812"
   };
 
+  let eventfulAPI = "";
+  let geoCodeKey="";
+
   firebase.initializeApp(config);
   console.log("firebase database connection initialized");
   
@@ -30,17 +33,24 @@ $(document).ready(function() {
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
   function getCoordinates(zipCode) {
-    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
-
+    
+    // read the value of gck from the database
+    database.ref().on("value", function(snapshot) {
+      let geoCodeKey = snapshot.val().gck;
+      console.log("gck is " + geoCodeKey);
+      return geoCodeKey;
+    });
+    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
+   
     $.ajax({
       url: queryURL,
       method: "GET",
       dataType: "json",
-      success: function(results){
-      console.log(results);
-          // latitude = data.results[0].geometry.location.lat;
-          // longitude= data.results[0].geometry.location.lng;
-          // alert("Lat = "+latitude+"- Long = "+longitude);
+      success: function(response){
+      console.log(response);
+          latitude = response.results[0].geometry.location.lat;
+          longitude= response.results[0].geometry.location.lng;
+          console.log("Lat = "+latitude+"- Long = "+longitude);
       }
     });
   }
