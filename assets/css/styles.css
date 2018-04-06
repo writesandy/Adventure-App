@@ -255,13 +255,27 @@ MEDIAQUERIES
         
     }
 
+    .get-adv-btn {
+        display: none;
+    }
 
-.get-adv-btn-2 {
+
+    .get-adv-btn-2 {
     position: fixed;
     bottom: 5%;
     right: 50%;
     left: 50%;
     }
+
+    #getAdventure {
+        display: hidden;
+    }
+
+    .form-check {
+        background-color: slategray;
+        opacity: 60%;
+    }
+    
 
 }
 
