@@ -50,12 +50,12 @@ $(document).ready(function() {
       dataType: "json",
       success: function(response){
       console.log(response);
-          latitude = response.results[0].geometry.location.lat;
-          longitude= response.results[0].geometry.location.lng;
-          console.log("Lat = "+latitude+"- Long = "+longitude);
-          returnZip = latitude + " " + longitude;
-          console.log("returnzip inside the func is " + returnZip);
-          map.setCenter({lat: latitude, lng: longitude});
+            latitude = response.results[0].geometry.location.lat;
+            longitude= response.results[0].geometry.location.lng;
+            console.log("Lat = "+latitude+"- Long = "+longitude);
+            returnZip = latitude + " " + longitude;
+            console.log("returnzip inside the func is " + returnZip);
+            map.setCenter({lat: latitude, lng: longitude});
       }
       
     });
@@ -166,7 +166,7 @@ console.log('map loaded');
   //creates a marker for the places
   function createMarker(place) {
       //customization of the icon happens at this line
-      let iconImage    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(32, 32));
+    //   let iconImage    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(32, 32));
       const placeLoc = place.geometry.location;
       marker = new google.maps.Marker({
           map: map,

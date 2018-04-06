@@ -320,8 +320,8 @@ MEDIAQUERIES
    
     #getAdventure{
         /* //this is the bottom button */
-        display: none;
-        visibility: hidden; 
+        /* display: none; */
+        /* visibility: hidden;  */
     }
 
     #get-adv-btn-2{
