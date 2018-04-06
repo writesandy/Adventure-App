@@ -27,6 +27,7 @@ $(document).ready(function() {
   let category = [];
   let postal = [];
   let zipCode = $(this).attr("data-name");
+  let returnZip = "";
 
 
 
@@ -41,7 +42,8 @@ $(document).ready(function() {
       return geoCodeKey;
     });
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
-   
+    let latitude = "";
+    let longitude = "";
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -51,7 +53,11 @@ $(document).ready(function() {
           latitude = response.results[0].geometry.location.lat;
           longitude= response.results[0].geometry.location.lng;
           console.log("Lat = "+latitude+"- Long = "+longitude);
+          returnZip = latitude + " " + longitude;
+          console.log("returnzip inside the func is " + returnZip);
+          map.setCenter({lat: latitude, lng: longitude});
       }
+      
     });
   }
 
@@ -62,17 +68,16 @@ $(document).ready(function() {
         console.log(zip);
         getCoordinates(zip);
       });
-
+      
     
     
-  // workspace for eventful API
-  function buildEventfulQueryURL(){ 
-  let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference to hide our API key
-  let searchTerms = "rock";
-  let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
-  };
+  // // workspace for eventful API
+  // function buildEventfulQueryURL(){ 
+  // let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference to hide our API key
+  // let searchTerms = "rock";
+  // let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
+  // };
 });
-
   let map;
   let infoWindow;
   let request;
