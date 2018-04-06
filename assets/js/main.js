@@ -28,8 +28,6 @@ $(document).ready(function() {
   let postal = [];
   let zipCode = $(this).attr("data-name");
 
-
-
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
   function getCoordinates(zipCode) {
@@ -62,16 +60,21 @@ $(document).ready(function() {
         console.log(zip);
         getCoordinates(zip);
       });
-
-    
-    
-  // workspace for eventful API
-  function buildEventfulQueryURL(){ 
-  let eventfulAPI = "pz73k49VfxrJv6Mf"; // replace this with a database reference to hide our API key
-  let searchTerms = "rock";
-  let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
-  };
 });
+
+
+// ticketmaster ajax call workspace 
+
+$.ajax({
+    url: "http://app.ticketmaster.com/discovery/v2/events.json?apikey=XAA9GAy5LE9aJmQz6mGBXNGqUe39qAgQ",
+    method: "GET",
+    dataType: "json",
+    success: function(results){
+        console.log(results);
+    }});
+
+// end ticketmaster ajax call workspace 
+
 
   let map;
   let infoWindow;
