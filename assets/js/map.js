@@ -30,8 +30,9 @@ function initialize() {
     //finds the type of place once the user location is determined
     request = {
         location: map.getCenter(),
-        radius: 1000,
-        types: ['bar']
+        radius: 10000,
+        types: ['bar'],
+        types: ['restaurant']
     };
     // service.nearbySearch(request, callback);
 
@@ -47,8 +48,9 @@ function initialize() {
 
             newRequest = {
                 location: pos,
-                radius: 1000,
-                types: ['bar']
+                radius: 10000,
+                types: ['bar'],
+                types: ['restaurant']
             };
             service.nearbySearch(newRequest, callback);
         }, function() {
