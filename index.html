@@ -21,7 +21,6 @@
 </head>
 
 <body>
-
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
@@ -31,170 +30,152 @@
             </div>
 
             <ul class="list-unstyled components">
-
-
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Select A State</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <br>
                         <form>
                             <label>
-                                    <!-- <select name="state" class="state-input" id="state"> -->
-                                    <option style "white" value="" selected="selected">Select a State</option>
-                                    <option value="AL">Alabama</option>
-                                    <option value="AK">Alaska</option>
-                                    <option value="AZ">Arizona</option>
-                                    <option value="AR">Arkansas</option>
-                                    <option value="CA">California</option>
-                                    <option value="CO">Colorado</option>
-                                    <option value="CT">Connecticut</option>
-                                    <option value="DE">Delaware</option>
-                                    <option value="DC">District Of Columbia</option>
-                                    <option value="FL">Florida</option>
-                                    <option value="GA">Georgia</option>
-                                    <option value="HI">Hawaii</option>
-                                    <option value="ID">Idaho</option>
-                                    <option value="IL">Illinois</option>
-                                    <option value="IN">Indiana</option>
-                                    <option value="IA">Iowa</option>
-                                    <option value="KS">Kansas</option>
-                                    <option value="KY">Kentucky</option>
-                                    <option value="LA">Louisiana</option>
-                                    <option value="ME">Maine</option>
-                                    <option value="MD">Maryland</option>
-                                    <option value="MA">Massachusetts</option>
-                                    <option value="MI">Michigan</option>
-                                    <option value="MN">Minnesota</option>
-                                    <option value="MS">Mississippi</option>
-                                    <option value="MO">Missouri</option>
-                                    <option value="MT">Montana</option>
-                                    <option value="NE">Nebraska</option>
-                                    <option value="NV">Nevada</option>
-                                    <option value="NH">New Hampshire</option>
-                                    <option value="NJ">New Jersey</option>
-                                    <option value="NM">New Mexico</option>
-                                    <option value="NY">New York</option>
-                                    <option value="NC">North Carolina</option>
-                                    <option value="ND">North Dakota</option>
-                                    <option value="OH">Ohio</option>
-                                    <option value="OK">Oklahoma</option>
-                                    <option value="OR">Oregon</option>
-                                    <option value="PA">Pennsylvania</option>
-                                    <option value="RI">Rhode Island</option>
-                                    <option value="SC">South Carolina</option>
-                                    <option value="SD">South Dakota</option>
-                                    <option value="TN">Tennessee</option>
-                                    <option value="TX">Texas</option>
-                                    <option value="UT">Utah</option>
-                                    <option value="VT">Vermont</option>
-                                    <option value="VA">Virginia</option>
-                                    <option value="WA">Washington</option>
-                                    <option value="WV">West Virginia</option>
-                                    <option value="WI">Wisconsin</option>
-                                    <option value="WY">Wyoming</option>
-                                  </select>
-                                </label>
-                            </ul>
-                        </li>
-                        <li>
-                       <a href="#EnterZipCode" data-toggle="collapse" aria-expanded="false">Enter a US ZipCode</a>      
+                                <!-- <select name="state" class="state-input" id="state"> -->
+                                <option style "white" value="" selected="selected">Select a State</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                                <!-- </select> -->
+                            </label>
+                        </form>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#EnterZipCode" data-toggle="collapse" aria-expanded="false">Enter a US ZipCode</a>      
                         <p class="input-text"><input type="text" class = "zipCode"></p>
-                        <ul class="collapse list-unstyled" id="zipCode">
+                        <ul class="collapse list-unstyled" id="zipCode"></ul>
 
                     <a href="#KidFriendly" data-toggle="collapse" aria-expanded="false">Kid-Friendly</a>
-                    <ul class="collapse list-unstyled" id="KidFriendly">
-                        <li>
-                            <form class="form-check">
-
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check" unchecked>
-                                        <span class="label-text">Option 01</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 02</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 03</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 04</span>
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 05</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 06</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 07</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 08</span>
-                                    </label>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-
-
+                        <ul class="collapse list-unstyled" id="KidFriendly">
+                            <li>
+                                <form class="form-check">
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check" unchecked>
+                                            <span class="label-text">Option 01</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 02</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 03</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 04</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 05</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 06</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 07</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label>
+                                            <input type="checkbox" name="check">
+                                            <span class="label-text">Option 08</span>
+                                        </label>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
                     <li>
                         <a href="#concerts" data-toggle="collapse" aria-expanded="false">Concerts</a>
                         <ul class="collapse list-unstyled" id="concerts">
                             <li>
                                 <a href="#">
                                     <div id="concerts" class="collapse">
-
                                         <div class="" "slidecontainer">
                                             <input type="range" min="1" max="2000" value="800" class="slider" id="myRange">
-                                            <p>Max Calories:
+                                                <p>Max Calories:
                                                 <span id="calorieSlider"></span>
-                                            </p>
+                                                </p>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-
                         </ul>
-                    </li>
-                    <li>
-                    </li>
-                    <div class="get-adv-btn">
-                            <button type="button" id = "getAdventure" class="btn btn-info">Get my Adventure!</button>
-                    </div>
-
             </ul>
-
-
+            <div class="get-adv-btn">
+                <button type="button" id = "getAdventure" class="btn btn-info">Get my Adventure!</button>
+            </div>
         </nav>
     </div>
-
-
-
-
-
     <div class="line"></div>
     <div class="results">
         <!-- Return to Top Button -->
@@ -209,20 +190,15 @@
         <p>This event is going to be fun. It's exactly what you needed to do today. 
         <br> This is going to be the best time.
         </p>
-        </div>
     </div>
 
 <!-- test for commit -->
-
-    </div>
-    </div>
-
     <div class="footer">
-            <div class="get-adv-btn-2">
-                    <button type="button" id = "getAdventure2" class="btn btn-info">Get my Adventure!</button>
-            </div>
+        <div class="get-adv-btn-2">
+            <button type="button" id = "getAdventure2" class="btn btn-info">Get my Adventure!</button>
+        </div>
         <sub>&copy; Copyright 2018</sub>
-      </div>
+    </div>
 
     <!-- script for calorie range slider -->
     <!-- <script>

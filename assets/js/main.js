@@ -170,7 +170,6 @@ console.log('map loaded');
       const placeLoc = place.geometry.location;
       marker = new google.maps.Marker({
           map: map,
-          icon: iconImage,
           position: place.geometry.location
       });
       //opens the infoWindow to show name and other information
