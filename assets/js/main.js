@@ -71,10 +71,21 @@ $(document).ready(function() {
   function buildEventfulQueryURL(){ 
   database.ref().on("value", function(snapshot) {
     eventfulAPI = snapshot.val().efk;
-    let searchTerms = "rock";
-    let eventQueryURL = `http://api.eventful.com/json/events/search?app_key${eventfulAPI}&q=${searchTerms}`;
+    console.log("loaded efk " + eventfulAPI)
+    let eventQueryURL = `http://api.eventful.com/json/events/search?app_key=${eventfulAPI}&q=${searchTerms}`;
+    console.log("eventQueryURL is now " + eventQueryURL)
+    $.ajax({
+      url: eventQueryURL,
+      method: "GET",
+      dataType: "json",
+      success: function(results){
+      console.log(results);
+      }
+  
+    });
   });
+  let searchTerms = "rock"
 }
-buildEventfulQueryURL();
-getCoordinates(zipCode);
+  getCoordinates(55101);
+  buildEventfulQueryURL();
   });
