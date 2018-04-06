@@ -70,7 +70,7 @@ $.ajax({
     method: "GET",
     dataType: "json",
     success: function(results){
-        console.log(results);
+        console.log("ticketmaster API return: " + results);
     }});
 
 // end ticketmaster ajax call workspace 
