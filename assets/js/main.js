@@ -29,16 +29,17 @@ $(document).ready(function() {
 
   function getCoordinates(zipCode) {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=AIzaSyAJ1giei1E95OkC-K2gtHTnzXapNSQLWqw";
-
+    let latitude = "";
+    let longitude = "";
     $.ajax({
       url: queryURL,
       method: "GET",
       dataType: "json",
-      success: function(results){
-      console.log(results);
-          // latitude = data.results[0].geometry.location.lat;
-          // longitude= data.results[0].geometry.location.lng;
-          // alert("Lat = "+latitude+"- Long = "+longitude);
+      success: function(response){
+      console.log(response);
+          latitude = response.results[0].geometry.location.lat;
+          longitude= response.results[0].geometry.location.lng;
+          console.log("Lat = "+latitude+"- Long = "+longitude);
       }
 
     });

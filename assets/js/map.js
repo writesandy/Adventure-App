@@ -30,8 +30,8 @@ function initialize() {
     //finds the type of place once the user location is determined
     request = {
         location: map.getCenter(),
-        radius: 5000,
-        types: ['restaurant']
+        radius: 1000,
+        types: ['bar']
     };
     // service.nearbySearch(request, callback);
 
@@ -47,8 +47,8 @@ function initialize() {
 
             newRequest = {
                 location: pos,
-                radius: 5000,
-                types: ['restaurant']
+                radius: 1000,
+                types: ['bar']
             };
             service.nearbySearch(newRequest, callback);
         }, function() {
@@ -60,11 +60,15 @@ function initialize() {
         }
 
     // recenter the map and reload the places after the map has been dragged and released
-    google.maps.event.addListener(map, 'dragend', function(event) {
-        map.setCenter(event.latLng)
+    map.addListener('dragend', function() {
+        // google.maps.event.addListener(map, 'dragend', function(event) {
+
+        console.log(event);
+        map.getCenter()
+        console.log(map.getCenter());
         clearResults(markers)
         let request = {
-            location: event.latLng,
+            location: map.getCenter(),
             radius: 5000,
             types: ['restaurant']
         };
@@ -79,6 +83,8 @@ function initialize() {
 //     }
 // }
 
+
+
 //creates a marker for the places
 function createMarker(place) {
     //customization of the icon happens at this line
@@ -91,8 +97,10 @@ function createMarker(place) {
     });
     //opens the infoWindow to show name and other information
     google.maps.event.addDomListener(marker, 'click', function() {
-        infoWindow.setContent(place.name + '<br>' + place.icon + '<br>' + place.formatted_address + '<br>' + place.place_id);
+        infoWindow.setContent(place.name + '<br>Are they open now ' + place.opening_hours.open_now + '<br>Price Level ' + place.price_level + '<br>' + place.place_id + '<br>Rating Level ' + place.rating + '<br>Photos ' + place.photos[0].html_attributions[0]);
         infoWindow.open(map, this);
+        console.log(place);
+
     });
     return marker;
 }
