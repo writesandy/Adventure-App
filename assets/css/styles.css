@@ -53,6 +53,7 @@ h2 {
 }
 
 .state-input {
+    margin-top: 20px;
     color: black;
 }
 
@@ -263,7 +264,6 @@ CONTENT STYLE
     
 }
 
-
 /* ---------------------------------------------------
 MEDIAQUERIES
 ----------------------------------------------------- */
@@ -317,7 +317,6 @@ MEDIAQUERIES
 
 @media (min-width: 769px) {
    
-
     #getAdventure{
         /* //this is the bottom button */
         display: none;
