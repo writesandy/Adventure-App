@@ -266,9 +266,21 @@ MEDIAQUERIES
 }
 
 @media (min-width: 769px) {
-    
+   
+
+    #getAdventure{
+        /* //this is the bottom button */
+        display: none;
+        visibility: hidden; 
+    }
+
+    #get-adv-btn-2{
+        /* //this is the top button */
+    }
+
     #buttons {
         display: none;
+        visibility: hidden;
     }
     .results {
         margin-left: 310px;
@@ -276,3 +288,5 @@ MEDIAQUERIES
     
     
 }
+/* <--!we want the top button go away on mobile -->
+<!--we want the bottom button to stay on mobile--> */
