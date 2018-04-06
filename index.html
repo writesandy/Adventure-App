@@ -12,14 +12,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--import RapidAPI (the middleman to our Spoonacular API)-->
-    <script src='https://s3.amazonaws.com/rapidapi-prod-fe_static/rapidapi.min.js'></script>
+    <!-- Google Maps and Google Maps Places API Import -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSDzgTsHEU_AoRgZ1oyBPhCrM_j9cqpHs&libraries=places"></script>  
+    <!-- Google Maps Places documentation https://developers.google.com/maps/documentation/javascript/places -->
     <!-- link the local css and js files -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css" />
-    <script src="assets/js/main.js"></script>
-    <!-- Google Maps and Google Maps Places API Import -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSDzgTsHEU_AoRgZ1oyBPhCrM_j9cqpHs&libraries=places"></script>
-    <!-- Google Maps Places documentation https://developers.google.com/maps/documentation/javascript/places -->
+    <script src="./assets/js/main.js"></script>
 </head>
 
 <body>
@@ -207,6 +205,7 @@
         </a>
 
         <!-- DIV FOR RECIPE RESULTS/ETC -->
+        <div id="map"></div>
         <h2>Lorem Ipsum Dolor</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -248,14 +247,14 @@
       </div>
 
     <!-- script for calorie range slider -->
-    <script>
+    <!-- <script>
         let slider = document.getElementById("myRange");
         let output = document.getElementById("calorieSlider");
         output.innerHTML = slider.value;
         slider.oninput = function () {
             output.innerHTML = this.value;
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
