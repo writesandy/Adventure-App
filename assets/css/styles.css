@@ -12,12 +12,12 @@ p {
     margin-left: 20px;
 }
 
-pageSubmenu {
+#pageSubmenu {
     font-family: sans-serif;
-    background: #fafafa;
+    background: #3FEEE6;
 
 }
-state {
+#state {
     font-family: sans-serif;
     font-size: 1.1em;
     color: #999;
@@ -32,12 +32,13 @@ sub {
 }
 
 h1 {
-    font-family: sans-serif;
-    font-size: 1.3em;
+    font-family: 'Kirang Haerang', cursive;
+    font-size: 2.6em;
     font-weight: 300;
     line-height: 1.9em;
-    color: #999;
-    margin-left: 20px;
+    color: #fafafa;
+    
+    margin-top: -20px;
 }
 
 h2 {
@@ -116,11 +117,7 @@ a:focus {
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-}
+
 
 .line {
     width: 100%;
@@ -129,9 +126,7 @@ a:focus {
     margin: 40px 0;
 }
 
-#buttons {
-    background-color: rgb(228, 218, 218);
-}
+
 
 /* ---------------------------------------------------
 SIDEBAR STYLE
@@ -223,20 +218,72 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-/* ---------------------------------------------------
-RETURN TO TOP BUTTON STYLE
------------------------------------------------------ */
-
-.back-to-top {
-    cursor: pointer;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    background-color: #f83f23;
+img {
+    
+    margin-left: 50px;
 }
 
 
+
+/* -------------------------------------------------
+KID_FRIENDLY SLIDER
+---------------------------------------------------*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {display:none;}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 
 /* ---------------------------------------------------
@@ -258,10 +305,11 @@ CONTENT STYLE
 }
 
 #map {
-    height: 400px;
-    width: 700px;
-    margin: 20px;
-    padding: 0px
+    position: absolute;
+    height: 100vh;
+    width: 78vw;
+    margin-right: 0px;
+    padding: 0px;
     
 }
 
@@ -289,10 +337,7 @@ MEDIAQUERIES
         display: none;
     }
 
-    #content {
-        position: relative;
-        
-    }
+   
 
     .get-adv-btn {
         display: none;
@@ -313,6 +358,15 @@ MEDIAQUERIES
     .form-check {
         background-color: slategray;
         opacity: 60%;
+    }
+
+    #map {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        margin-top: -20px;
+        padding: 0px;
+        
     }
 }
 
