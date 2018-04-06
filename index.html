@@ -34,13 +34,13 @@
 
 
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Location/ZipCode/Radius</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Select A State</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <br>
                         <form>
                             <label>
-                                <select name="state" class="state-input" id="state">
-                                    <option value="" selected="selected">Select a State</option>
+                                    <!-- <select name="state" class="state-input" id="state"> -->
+                                    <option style "white" value="" selected="selected">Select a State</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
                                     <option value="AZ">Arizona</option>
@@ -93,18 +93,16 @@
                                     <option value="WI">Wisconsin</option>
                                     <option value="WY">Wyoming</option>
                                   </select>
-                                
-                              
-                                <p class="input-text"><input type="text" class = "zipCode" placeholder="Enter US Zip Code"></p>
-                        </form>
-                            </label>
+                                </label>
+                            </ul>
+                        </li>
+                        <li>
+                       <a href="#EnterZipCode" data-toggle="collapse" aria-expanded="false">Enter a US ZipCode</a>      
+                        <p class="input-text"><input type="text" class = "zipCode"></p>
+                        <ul class="collapse list-unstyled" id="zipCode">
 
-                    </ul>
-                </li>
-                <li>
-
-                    <a href="#pageDietmenu" data-toggle="collapse" aria-expanded="false">Kid-Friendly</a>
-                    <ul class="collapse list-unstyled" id="pageDietmenu">
+                    <a href="#KidFriendly" data-toggle="collapse" aria-expanded="false">Kid-Friendly</a>
+                    <ul class="collapse list-unstyled" id="KidFriendly">
                         <li>
                             <form class="form-check">
 
@@ -163,11 +161,11 @@
 
 
                     <li>
-                        <a href="#pageCalmenu" data-toggle="collapse" aria-expanded="false">Concerts</a>
-                        <ul class="collapse list-unstyled" id="pageCalmenu">
+                        <a href="#concerts" data-toggle="collapse" aria-expanded="false">Concerts</a>
+                        <ul class="collapse list-unstyled" id="concerts">
                             <li>
                                 <a href="#">
-                                    <div id="calorie" class="collapse">
+                                    <div id="concerts" class="collapse">
 
                                         <div class="" "slidecontainer">
                                             <input type="range" min="1" max="2000" value="800" class="slider" id="myRange">

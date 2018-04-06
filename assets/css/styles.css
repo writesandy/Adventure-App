@@ -12,6 +12,18 @@ p {
     margin-left: 20px;
 }
 
+pageSubmenu {
+    font-family: sans-serif;
+    background: #fafafa;
+
+}
+state {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    color: #999;
+    padding: 10px;
+}
+
 sub {
     font-size: .9em;
     font-family: sans-serif;
