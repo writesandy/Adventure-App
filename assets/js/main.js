@@ -42,6 +42,7 @@ $(document).ready(function() {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
     let latitude = "";
     let longitude = "";
+
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -76,8 +77,20 @@ $(document).ready(function() {
     });
   }
 
-  $(function() {
-    $("form").submit(function() { return false; });
+  $(function(data) {
+
+        $(".zipCode").keydown(function(event) {
+            if (event.keyCode===13) {
+                $("#getAdventure").trigger('click');
+            }
+    
+        });
+    })
+
+    $(function() {
+        $("form").submit(function() { 
+        return false; 
+        });
     });
 
     $('#pageSubmenu').on('click', function (event){
@@ -87,6 +100,12 @@ $(document).ready(function() {
     $('#getAdventure').on("click", function (event) {
     event.preventDefault();
     let zip = $(".zipCode").val().trim();
+    // if ($.isNumeric(zip)) {
+    //     return true
+    // }
+    // else {
+    //     alert("Please enter your number for a zip code")
+    // }
     postal.push(zip);
     // console.log(zip);
     getCoordinates(zip);
@@ -100,10 +119,11 @@ $(document).ready(function() {
         dataType: "json",
         success: function(results){
             console.log("ticketmaster API return: " + results);
-        }});
-    
+        }
+    });
     // end ticketmaster ajax call workspace 
 });
+
 
 let map;
 let infoWindow;
@@ -286,7 +306,7 @@ function createMarker(place) {
     });
     //opens the infoWindow to show name and other information
     google.maps.event.addDomListener(marker, 'click', function() {
-        infoWindow.setContent(place.name + '<br>' + place.id);
+        infoWindow.setContent(place.name);
         infoWindow.open(map, this);
     //   console.log(place);
 
