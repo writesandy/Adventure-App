@@ -168,7 +168,8 @@ SIDEBAR STYLE
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #3FEEE6;
+    border-bottom: 1px solid #FF3900;
+    
 }
 
 #sidebar ul p {
@@ -238,8 +239,8 @@ img {
 
 .get-adv-btn {
     width: 40%;
-    margin-left: 25%;
-    margin-right:35%;
+    margin-left: 21%;
+    margin-right:39%;
     background-color: #00ceff;
     
 }
