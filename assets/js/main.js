@@ -136,12 +136,32 @@ $(document).ready(function() {
         let eventCategory = "";
         const radius = 25;
         const unit = "miles"
-        let today = "2018-04-07T00:00:00Z" // make dynamic
-        let tomorrow = "2018-04-09T00:00:00Z" // make dynamic
+        
+
+        var today = new Date();
+        var dd = today.getDate();
+        var tmdd = today.getDate()+1;
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if(dd<10) {
+            dd = '0'+dd
+            tmdd = '0'+tmdd;
+        } 
+
+        if(mm<10) {
+            mm = '0'+mm
+        } 
+
+        let todayString = `${yyyy}-${mm}-${dd}T00:00:00Z` // make dynamic
+        console.log("todayString is " + todayString)
+        let tomorrowString = `${yyyy}-${mm}-${tmdd}T00:00:00Z` // make dynamic
+        console.log("tomorrowString is " + tomorrowString);
+
         let latlong = "44.982980,-93.203396";
         console.log("latlong is " + latlong)
     
-    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${today}&endDateTime=${tomorrow}`;
+    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}`;
     console.log(eventQueryURL)
     $.ajax({
         url: eventQueryURL,
