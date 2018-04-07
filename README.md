@@ -17,36 +17,20 @@
 2. git merge master 
 (This takes any changes from MASTER and merges them BACK TO develop)
 
-# GroupProject Recipe App
-This is our Recipe and Allergen/Dietery Preference App. 
+# GroupProject Adventure App
+This is our Adventure App for Things to do today
 Saundra Rikki Brandon Joe Thomas
 
 Our Project:
-Enter your Food Ingredients
-Nutritional analysis of the meal
-Choose the recipe you want
-We will display: Recipe,
-Glycemic Index, Calorie Count
+Enter your city or state
+We will find something fun for you to do today
+You'll go do it and have a great time!
 
-**Enter your ingredients** We have UI layouts sketched out for this. 
-Including Dietary Exclusions
-Include Calories requirements
-Recipes are generated within your parameters 
-
-Stretch Goals:
-Sign in with Facebook/Google 
-Display the map for buying more ingredients
-Link to Amazon Pantry for online
-Share on Social Media
-Choose MainCourse/Dessert/Snacks
-Complexity of the Recipe
-barcode scanner
-picture of reciept to itemize items into your pantry
+ 
+ 
 
 Our APIs:
-https://developer.edamam.com/edamam-nutrition-api
-https://developer.edamam.com/edamam-recipe-api
-
+ 
 
 **Task Breakdown:**
 
@@ -54,7 +38,6 @@ Project Management/Information Architecture: Saundra, Brandon
 
 Front End Captain: Thom
 Bootstrap
-Shoelace to structure the layout: http://shoelace.io/
 Codepen.io for animation and titles
 
 
@@ -68,8 +51,6 @@ Javascript: Joe
 Ajax: 
 API Research: Saundra, Joe
 Database:
- 
-Local Storage to save the recipes for the user
 
 Debugging: ALL 
 
