@@ -90,6 +90,8 @@ $(document).ready(function() {
     postal.push(zip);
     // console.log(zip);
     getCoordinates(zip);
+    $('.zipCode').val('');
+
     });
       
     
