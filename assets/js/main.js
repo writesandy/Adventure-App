@@ -13,8 +13,12 @@ $(document).ready(function() {
     messagingSenderId: "107746642812"
   };
 
-  let eventfulAPI = "";
+  // global variables
+
   let geoCodeKey="";
+  let tmk = "";
+  let latitude = "";
+  let longitude = "";
 
   firebase.initializeApp(config);
 //   console.log("firebase database connection initialized");
@@ -27,7 +31,7 @@ $(document).ready(function() {
   let category = [];
   let postal = [];
   let zipCode = $(this).attr("data-name");
-  let returnZip = "";
+  let latlong = "";
 
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
@@ -40,8 +44,7 @@ $(document).ready(function() {
       return geoCodeKey;
     });
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
-    let latitude = "";
-    let longitude = "";
+
 
     $.ajax({
       url: queryURL,
@@ -52,7 +55,6 @@ $(document).ready(function() {
             latitude = response.results[0].geometry.location.lat;
             longitude= response.results[0].geometry.location.lng;
             // console.log("Lat = "+latitude+"- Long = "+longitude);
-            returnZip = latitude + " " + longitude;
             // console.log("returnzip inside the func is " + returnZip);
             map.setCenter({lat: latitude, lng: longitude});
             google.maps.event.addListener(map,'bounds_changed', function(event) {
@@ -73,8 +75,11 @@ $(document).ready(function() {
                 // puts the locations on the map
                 service.nearbySearch(request, callback);           
             })
+            return latitude;
       }
+      
     });
+    
   }
 
   $(function(data) {
@@ -113,15 +118,27 @@ $(document).ready(function() {
 
     });
       
+    database.ref().on("value", function(snapshot) {
+        tmk = snapshot.val().tmk;
+        console.log("tmk is " + tmk);
+        let eventCategory = "";
+        const radius = 25;
+        const unit = "miles"
+        let today = "2018-04-07T00:00:00Z" // make dynamic
+        let tomorrow = "2018-04-09T00:00:00Z" // make dynamic
+        let latlong = "44.982980,-93.203396";
+        console.log("latlong is " + latlong)
+    
+    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${today}&endDateTime=${tomorrow}`;
+    console.log(eventQueryURL)
     $.ajax({
-        url: "http://app.ticketmaster.com/discovery/v2/events.json?apikey=XAA9GAy5LE9aJmQz6mGBXNGqUe39qAgQ",
+        url: eventQueryURL,
         method: "GET",
         dataType: "json",
         success: function(results){
-            console.log("ticketmaster API return: " + results);
-        }
+            console.log(results);
+        }});  
     });
-    // end ticketmaster ajax call workspace 
 });
 
 
