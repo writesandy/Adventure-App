@@ -25,7 +25,12 @@ p {
     padding: 10px;
 }
 
-
+sub {
+    font-size: .6em;
+    font-family: sans-serif;
+    color: #fafafa;
+    margin-left:20px;
+}
 
 h1 {
     font-family: 'Kirang Haerang', cursive;
@@ -34,7 +39,7 @@ h1 {
     line-height: 1.9em;
     color: #fafafa;
     
-    margin-top: -20px;
+    margin-top: -35px;
 }
 
 h2 {
@@ -95,12 +100,12 @@ h4 {
       &:hover::after {
         opacity: 0.5;
       }
-    
+    }
     input[type=checkbox] {
       visibility: hidden;
       &:checked + label:after {
         opacity: 1;
-        
+      }
     }    
   }
 
@@ -143,7 +148,7 @@ SIDEBAR STYLE
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #3FEEE6;
+    background: #FF3900;
     color: #fff;
     transition: all 0.3s;
 }
@@ -154,7 +159,7 @@ SIDEBAR STYLE
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #3FEEE6;
+    background: #FF3900;
 }
 
 #sidebar ul.components {
@@ -174,14 +179,14 @@ SIDEBAR STYLE
 }
 
 #sidebar ul li a:hover {
-    color: #55BCC9;
+    color: #00ceff;
     background: #fff;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #55BCC9;
+    background: #00ceff;
 }
 
 
@@ -231,6 +236,7 @@ img {
     width: 40%;
     margin-left: 25%;
     margin-right:35%;
+    background-color: #00ceff;
     
 }
 
@@ -335,13 +341,6 @@ CONTENT STYLE
     text-align: center;
  }
 
- sub {
-    font-size: .7em;
-    font-family: sans-serif;
-    color: #fafafa;
-    
-}
-
 
 
 /* ---------------------------------------------------
@@ -349,7 +348,9 @@ MEDIAQUERIES
 ----------------------------------------------------- */
 
 @media (max-width: 768px) {
-    
+    .body {
+        background-color: #3FEEE6;
+    }
     #content {
         width: 100%;
     }
@@ -393,17 +394,37 @@ MEDIAQUERIES
 
     #map {
         position: absolute;
-        height: 85vh;
+        height: 84vh;
         width: 100vw;
-        margin-top: -20px;
+        margin-top: 1px;
         padding: 0px;
         
     }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100vw;
+        background-color: #3FEEE6;
+        border-top: 10px;
+        border-color: #3FEEE6;
+        text-align: center;
+     }
 }
 
 @media (min-width: 769px) {
    
-   
+    #getAdventure{
+        /* //this is the bottom button */
+        /* display: none; */
+        /* visibility: hidden;  */
+    }
+
+    #get-adv-btn-2{
+        /* //this is the top button */
+    }
+
     #buttons {
         display: none;
         visibility: hidden;
@@ -414,3 +435,5 @@ MEDIAQUERIES
     
     
 }
+/* <--!we want the top button go away on mobile -->
+<!--we want the bottom button to stay on mobile--> */
