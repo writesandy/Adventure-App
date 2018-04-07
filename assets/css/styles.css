@@ -199,6 +199,7 @@ a[aria-expanded="true"] {
 a[data-toggle="collapse"] {
     position: relative;
     
+    
 }
 
 /* for the dropdown box icons */
@@ -387,15 +388,16 @@ MEDIAQUERIES
     }
 
    .sidebar-header {
-        height: 65px;
+        height: 50px;
         
     } 
 
     h1 {
-        font-size: 1.8em;
+        font-size: 1.7em;
     font-weight: 300;
     line-height: 1.9em;
-    display: inline;
+    display: inline-block;
+    margin-top: -20px;
     
     }
 
@@ -403,7 +405,9 @@ MEDIAQUERIES
         height: 50px;
         width: 50px;
         display: inline;
-        padding-bottom:
+        padding-bottom: 5px;
+        margin-top: -10px;
+        margin-right: -10px;
     }
 
     .input-text {
