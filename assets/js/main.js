@@ -28,6 +28,8 @@ $(document).ready(function() {
   let postal = [];
   let zipCode = $(this).attr("data-name");
   let returnZip = "";
+  let locationCoordinates = $(this).attr("data-name");
+
 
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
@@ -81,6 +83,15 @@ $(document).ready(function() {
         $(".zipCode").keydown(function(event) {
             if (event.keyCode===13) {
                 $("#getAdventure").trigger('click');
+                $('.zipCode').val('');
+            }
+        });
+    })
+
+    $(function(data) {
+        $(".locationCenter").keydown(function(event) {
+            if (event.keyCode===13) {
+                $("#getAdventure").trigger('click');
             }
         });
     })
@@ -91,10 +102,12 @@ $(document).ready(function() {
         });
     });
 
-    let city = "";
-       $(".city").geocomplete();
+    // This autocompletes the locationCenter input field
+
+    let locationAutoComplete = "";
+       $(".locationCenter").geocomplete();
         // Trigger geocoding request by hitting enter on the city field in the HTML
-        $(".city").on("submit", function(event) {
+        $(".locationCenter").on("submit", function(event) {
             event.preventDefault();
             console.log("Is this working?");
         // keydown(function(event) {
@@ -107,19 +120,26 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
+    // Clicking the button creates the zipcode that goes to the getCoordinates
+
     $('#getAdventure').on("click", function (event) {
         event.preventDefault();
         let zip = $(".zipCode").val().trim();
-        // if ($.isNumeric(zip)) {
-        //     return true
-        // }
-        // else {
-        //     alert("Please enter your number for a zip code")
-        // }
         postal.push(zip);
         // console.log(zip);
         getCoordinates(zip);
         $('.zipCode').val('');
+    });
+
+    $('#getAdventure').on("click", function (event) {
+        event.preventDefault();
+        let loc = $(".locationCenter").val().trim();
+        postal.push(loc);
+        console.log(loc);
+        let coords = getCoordinates(loc);
+        console.log(coords);
+
+        $('.locationCenter').val('');
     });
       
     $.ajax({
