@@ -134,16 +134,16 @@ $(document).ready(function() {
         $('.zipCode').val('');
     });
 
-    $('#getAdventure').on("click", function (event) {
-        event.preventDefault();
-        let loc = $(".locationCenter").val().trim();
-        postal.push(loc);
-        console.log(loc);
-        let coords = getCoordinates(loc);
-        console.log(coords);
+    // $('#getAdventure').on("click", function (event) {
+    //     event.preventDefault();
+    //     let loc = $(".locationCenter").val().trim();
+    //     postal.push(loc);
+    //     console.log(loc);
+    //     let coords = getCoordinates(loc);
+    //     console.log(coords);
 
-        $('.locationCenter').val('');
-    });
+    //     $('.locationCenter').val('');
+    // });
     
     // TICKETMASTER SECTION!!!!!!!!!!!!!! 
     database.ref().on("value", function(snapshot) {
