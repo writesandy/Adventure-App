@@ -171,17 +171,18 @@ $(document).ready(function() {
         dataType: "json",
         success: function(results){
             console.log(results);
+            let eventLat = results._embedded.events[1]._embedded.venues[0].location.latitude
+            let eventLong = results._embedded.events[0]._embedded.venues[0].location.longitude
+            let eventLatLong = `${eventLat},${eventLong}`;
+            console.log("event latlong is " + eventLatLong);
+            // end ticketmaster section
         }});  
+
+       
     });
 
     // this is the location data returned by ticketmaster, it will need to be inside
     // of a loop to iterate once for each event[i]
-    
-    // let eventLat = events[i].venues[0].location.latitude
-    // let eventLong = events[i].venues[0].location.longitude
-    // eventLatLong = `${eventLat},${eventLong}`,
-    
-    // end ticketmaster section
 });
 
 
