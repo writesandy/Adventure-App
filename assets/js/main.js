@@ -78,7 +78,7 @@ $(document).ready(function() {
 
   $(function() {
     $("form").submit(function() { return false; });
-});
+    });
 
     $('#pageSubmenu').on('click', function (event){
         event.preventDefault();
@@ -93,9 +93,17 @@ $(document).ready(function() {
     $('.zipCode').val('');
 
     });
+
+    $('#getAdventure2').on("click", function (event) {
+        event.preventDefault();
+        let zip = $(".zipCode").val().trim();
+        postal.push(zip);
+        // console.log(zip);
+        getCoordinates(zip);
+        $('.zipCode').val('');
+    
+    });
       
-    
-    
     $.ajax({
         url: "http://app.ticketmaster.com/discovery/v2/events.json?apikey=XAA9GAy5LE9aJmQz6mGBXNGqUe39qAgQ",
         method: "GET",
