@@ -286,7 +286,7 @@ function createMarker(place) {
     });
     //opens the infoWindow to show name and other information
     google.maps.event.addDomListener(marker, 'click', function() {
-        infoWindow.setContent(place.name + '<br>' + place.id);
+        infoWindow.setContent(place.name);
         infoWindow.open(map, this);
     //   console.log(place);
 
