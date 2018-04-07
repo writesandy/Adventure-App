@@ -154,9 +154,10 @@ $(document).ready(function() {
             mm = '0'+mm
         } 
 
-        let todayString = `${yyyy}-${mm}-${dd}T00:00:00Z` // make dynamic
+        let todayString = `${yyyy}-${mm}-${dd}T00:00:00Z`
         console.log("todayString is " + todayString)
-        let tomorrowString = `${yyyy}-${mm}-${tmdd}T00:00:00Z` // make dynamic
+        
+        let tomorrowString = `${yyyy}-${mm}-${tmdd}T00:00:00Z`
         console.log("tomorrowString is " + tomorrowString);
 
         let latlong = "44.982980,-93.203396";
@@ -172,6 +173,15 @@ $(document).ready(function() {
             console.log(results);
         }});  
     });
+
+    // this is the location data returned by ticketmaster, it will need to be inside
+    // of a loop to iterate once for each event[i]
+    
+    // let eventLat = events[i].venues[0].location.latitude
+    // let eventLong = events[i].venues[0].location.longitude
+    // eventLatLong = `${eventLat},${eventLong}`,
+    
+    // end ticketmaster section
 });
 
 
@@ -354,6 +364,7 @@ function createMarker(place) {
         position: place.geometry.location,
         icon: iconImage,
     });
+    
     //opens the infoWindow to show name and other information
     google.maps.event.addDomListener(marker, 'click', function() {
         infoWindow.setContent(place.name);
