@@ -62,7 +62,7 @@ h4 {
     color: black;
 }
 
-.locationCenter {
+.city {
     margin-bottom: 5px;
 }
 
@@ -165,7 +165,7 @@ SIDEBAR STYLE
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+    padding: 0px;
     border-bottom: 1px solid #FF3900;
     
 }
@@ -386,9 +386,30 @@ MEDIAQUERIES
         background: #FF3900;
     }
 
-    .sidebar-header {
-        display: none;
+   .sidebar-header {
+        height: 65px;
+        
+    } 
+
+    h1 {
+        font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1.9em;
+    display: inline;
+    
     }
+
+    img {
+        height: 50px;
+        width: 50px;
+        display: inline;
+        padding-bottom:
+    }
+
+    .input-text {
+        background: #FF3900;
+    }
+    
 
    
 
@@ -435,15 +456,9 @@ MEDIAQUERIES
 
 @media (min-width: 769px) {
    
-    #getAdventure{
-        /* //this is the bottom button */
-        /* display: none; */
-        /* visibility: hidden;  */
-    }
+    
 
-    #get-adv-btn-2{
-        /* //this is the top button */
-    }
+   
 
     #buttons {
         display: none;
