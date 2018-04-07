@@ -75,19 +75,22 @@ $(document).ready(function() {
             })
       }
     });
+  }
 
-//   $(function(data) {
+  $(function(data) {
 
-//         $(".zipCode").keydown(function(event) {
-//             if (event.keyCode===13) {
-//                 $("#getAdventure").trigger('click');
-//             }
+        $(".zipCode").keydown(function(event) {
+            if (event.keyCode===13) {
+                $("#getAdventure").trigger('click');
+            }
     
-//         });
-//     })
+        });
+    })
 
-    $("form").submit(function() { 
+    $(function() {
+        $("form").submit(function() { 
         return false; 
+        });
     });
 
     $('#pageSubmenu').on('click', function (event){
@@ -97,12 +100,12 @@ $(document).ready(function() {
     $('#getAdventure').on("click", function (event) {
     event.preventDefault();
     let zip = $(".zipCode").val().trim();
-    if ($.isNumeric(zip)) {
-        return true
-    }
-    else {
-        alert("Please enter your number for a zip code")
-    }
+    // if ($.isNumeric(zip)) {
+    //     return true
+    // }
+    // else {
+    //     alert("Please enter your number for a zip code")
+    // }
     postal.push(zip);
     // console.log(zip);
     getCoordinates(zip);
@@ -118,7 +121,6 @@ $(document).ready(function() {
             console.log("ticketmaster API return: " + results);
         }
     });
-    }
     // end ticketmaster ajax call workspace 
 });
 
