@@ -129,7 +129,8 @@ $(document).ready(function() {
     $('.zipCode').val('');
 
     });
-      
+    
+    // TICKETMASTER SECTION!!!!!!!!!!!!!! 
     database.ref().on("value", function(snapshot) {
         tmk = snapshot.val().tmk;
         console.log("tmk is " + tmk);
