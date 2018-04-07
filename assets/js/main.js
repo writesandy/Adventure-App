@@ -119,7 +119,7 @@ function initialize() {
         center: {lat: 44.986656, lng: -93.258133},
         zoom: 12,
         styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'geometry', stylers: [{color: '#172436'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
             {
@@ -135,12 +135,12 @@ function initialize() {
             {
               featureType: 'poi.park',
               elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
+              stylers: [{color: '#768B8E'}]
             },
             {
               featureType: 'poi.park',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
+              stylers: [{color: '#ffffff'}]
             },
             {
               featureType: 'road',
@@ -185,12 +185,12 @@ function initialize() {
             {
               featureType: 'water',
               elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
+              stylers: [{color: '#000000'}]
             },
             {
               featureType: 'water',
               elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
+              stylers: [{color: '#aaaaaa'}]
             },
             {
               featureType: 'water',
