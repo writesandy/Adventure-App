@@ -76,6 +76,10 @@ $(document).ready(function() {
     });
   }
 
+  $(function() {
+    $("form").submit(function() { return false; });
+});
+
     $('#pageSubmenu').on('click', function (event){
         event.preventDefault();
     });
@@ -117,7 +121,7 @@ function initialize() {
     // definitions
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 44.986656, lng: -93.258133},
-        zoom: 12,
+        zoom: 13,
         styles: [
             {elementType: 'geometry', stylers: [{color: '#172436'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
