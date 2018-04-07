@@ -75,7 +75,6 @@ $(document).ready(function() {
                 // puts the locations on the map
                 service.nearbySearch(request, callback);           
             })
-            return latitude;
       }
       
     });
@@ -131,20 +130,9 @@ $(document).ready(function() {
         postal.push(zip);
         // console.log(zip);
         getCoordinates(zip);
+
         $('.zipCode').val('');
-    });
 
-    // $('#getAdventure').on("click", function (event) {
-    //     event.preventDefault();
-    //     let loc = $(".locationCenter").val().trim();
-    //     postal.push(loc);
-    //     console.log(loc);
-    //     let coords = getCoordinates(loc);
-    //     console.log(coords);
-
-    //     $('.locationCenter').val('');
-    // });
-    
     // TICKETMASTER SECTION!!!!!!!!!!!!!! 
     database.ref().on("value", function(snapshot) {
         tmk = snapshot.val().tmk;
@@ -175,7 +163,7 @@ $(document).ready(function() {
         let tomorrowString = `${yyyy}-${mm}-${tmdd}T00:00:00Z`
         console.log("tomorrowString is " + tomorrowString);
 
-        let latlong = "44.982980,-93.203396";
+        let latlong = latitude + ","  + longitude;
         console.log("latlong is " + latlong)
     
     const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}`;
@@ -186,12 +174,46 @@ $(document).ready(function() {
         dataType: "json",
         success: function(results){
             console.log(results);
-            let eventLat = results._embedded.events[0]._embedded.venues[0].location.latitude
-            let eventLong = results._embedded.events[0]._embedded.venues[0].location.longitude
-            let eventLatLong = `${eventLat},${eventLong}`;
-            console.log("the latlong for the first returned event is" + eventLatLong);
+            for (var i=0; i<results._embedded.events.length;i++)
+            {
+                let eventLat = results._embedded.events[i]._embedded.venues[0].location.latitude;
+                let eventLong = results._embedded.events[i]._embedded.venues[0].location.longitude;
+                let eventName = results._embedded.events[i].name;
+                let eventImage = results._embedded.events[i].images[0].url;
+                let eventLatLong = {
+                    lat: parseInt(eventLat),
+                    lng: parseInt(eventLong)
+                }
+                console.log("the name of event number " + [i] + " is " + eventName)
+                console.log("the latlong for event number " + [i] + " is " + eventLatLong);
+                console.log("the event img URL is " + [i] + " is " + eventImage);
+                
+                // var newMarker = new google.maps.Marker({
+                //     position: eventLatLong,
+                //     map: map,
+                //     title: eventName
+                //   });
+                //   markers.push(marker);
+                //   console.log("this marker has added tot he array");
+            }
+
+            
         }});  
     });
+    });
+
+    // $('#getAdventure').on("click", function (event) {
+    //     event.preventDefault();
+    //     let loc = $(".locationCenter").val().trim();
+    //     postal.push(loc);
+    //     console.log(loc);
+    //     let coords = getCoordinates(loc);
+    //     console.log(coords);
+
+    //     $('.locationCenter').val('');
+    // });
+    
+
 // end of document ready
 });
 
