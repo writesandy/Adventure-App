@@ -75,23 +75,19 @@ $(document).ready(function() {
             })
       }
     });
-  }
 
+//   $(function(data) {
 
-
-
-
-
-  $(function(data) {
-
-        $(".zipCode").keydown(function(event) {
-            if (event.keyCode===13) {
-                $("#getAdventure").trigger('click');
-            }
+//         $(".zipCode").keydown(function(event) {
+//             if (event.keyCode===13) {
+//                 $("#getAdventure").trigger('click');
+//             }
     
-        });
+//         });
+//     })
 
-    $("form").submit(function() { return false; });
+    $("form").submit(function() { 
+        return false; 
     });
 
     $('#pageSubmenu').on('click', function (event){
@@ -120,10 +116,12 @@ $(document).ready(function() {
         dataType: "json",
         success: function(results){
             console.log("ticketmaster API return: " + results);
-        }});
-    
+        }
+    });
+    }
     // end ticketmaster ajax call workspace 
 });
+
 
 let map;
 let infoWindow;
