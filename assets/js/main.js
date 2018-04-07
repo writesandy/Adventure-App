@@ -101,6 +101,12 @@ $(document).ready(function() {
     $('#getAdventure').on("click", function (event) {
     event.preventDefault();
     let zip = $(".zipCode").val().trim();
+    if ($.isNumeric(zip)) {
+        return true
+    }
+    else {
+        alert("Please enter your number for a zip code")
+    }
     postal.push(zip);
     // console.log(zip);
     getCoordinates(zip);
