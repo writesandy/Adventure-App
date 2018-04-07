@@ -13,8 +13,12 @@ $(document).ready(function() {
     messagingSenderId: "107746642812"
   };
 
-  let eventfulAPI = "";
+  // global variables
+
   let geoCodeKey="";
+  let tmk = "";
+  let latitude = "";
+  let longitude = "";
 
   firebase.initializeApp(config);
 //   console.log("firebase database connection initialized");
@@ -27,9 +31,7 @@ $(document).ready(function() {
   let category = [];
   let postal = [];
   let zipCode = $(this).attr("data-name");
-  let returnZip = "";
-  let locationCoordinates = $(this).attr("data-name");
-
+  let latlong = "";
 
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
@@ -42,8 +44,7 @@ $(document).ready(function() {
       return geoCodeKey;
     });
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
-    let latitude = "";
-    let longitude = "";
+
 
     $.ajax({
       url: queryURL,
@@ -54,7 +55,6 @@ $(document).ready(function() {
             latitude = response.results[0].geometry.location.lat;
             longitude= response.results[0].geometry.location.lng;
             // console.log("Lat = "+latitude+"- Long = "+longitude);
-            returnZip = latitude + " " + longitude;
             // console.log("returnzip inside the func is " + returnZip);
             map.setCenter({lat: latitude, lng: longitude});
             google.maps.event.addListener(map,'bounds_changed', function(event) {
@@ -75,8 +75,11 @@ $(document).ready(function() {
                 // puts the locations on the map
                 service.nearbySearch(request, callback);           
             })
+            return latitude;
       }
+      
     });
+    
   }
 
   $(function(data) {
@@ -141,16 +144,55 @@ $(document).ready(function() {
 
         $('.locationCenter').val('');
     });
-      
+    
+    // TICKETMASTER SECTION!!!!!!!!!!!!!! 
+    database.ref().on("value", function(snapshot) {
+        tmk = snapshot.val().tmk;
+        console.log("tmk is " + tmk);
+        let eventCategory = "";
+        const radius = 25;
+        const unit = "miles"
+        
+
+        var today = new Date();
+        var dd = today.getDate();
+        var tmdd = today.getDate()+1;
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if(dd<10) {
+            dd = '0'+dd
+            tmdd = '0'+tmdd;
+        } 
+
+        if(mm<10) {
+            mm = '0'+mm
+        } 
+
+        let todayString = `${yyyy}-${mm}-${dd}T00:00:00Z`
+        console.log("todayString is " + todayString)
+        
+        let tomorrowString = `${yyyy}-${mm}-${tmdd}T00:00:00Z`
+        console.log("tomorrowString is " + tomorrowString);
+
+        let latlong = "44.982980,-93.203396";
+        console.log("latlong is " + latlong)
+    
+    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}`;
+    console.log(eventQueryURL)
     $.ajax({
-        url: "http://app.ticketmaster.com/discovery/v2/events.json?apikey=XAA9GAy5LE9aJmQz6mGBXNGqUe39qAgQ",
+        url: eventQueryURL,
         method: "GET",
         dataType: "json",
         success: function(results){
-            console.log("ticketmaster API return: " + results);
-        }
+            console.log(results);
+            let eventLat = results._embedded.events[0]._embedded.venues[0].location.latitude
+            let eventLong = results._embedded.events[0]._embedded.venues[0].location.longitude
+            let eventLatLong = `${eventLat},${eventLong}`;
+            console.log("the latlong for the first returned event is" + eventLatLong);
+        }});  
     });
-    // end ticketmaster ajax call workspace 
+// end of document ready
 });
 
 
@@ -333,6 +375,7 @@ function createMarker(place) {
         position: place.geometry.location,
         icon: iconImage,
     });
+    
     //opens the infoWindow to show name and other information
     google.maps.event.addDomListener(marker, 'click', function() {
         infoWindow.setContent(place.name);

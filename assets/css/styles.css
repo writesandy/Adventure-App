@@ -14,7 +14,7 @@ p {
 
 #pageSubmenu {
     font-family: sans-serif;
-    background: #3FEEE6;
+    background: #FF3900;
     margin-left: 5px;
 
 }
@@ -153,13 +153,11 @@ SIDEBAR STYLE
     height: 100vh;
     z-index: 999;
     background: #FF3900;
-    color: #fff;
+    color: #fafafa;
     transition: all 0.3s;
 }
 
-#sidebar.active {
-    margin-left: -300px;
-}
+
 
 #sidebar .sidebar-header {
     padding: 20px;
@@ -183,22 +181,27 @@ SIDEBAR STYLE
     display: block;
 }
 
+/* Why is this only affected the first li a but not the second?
 #sidebar ul li a:hover {
-    color: #00ceff;
-    background: #fff;
-}
+    color: #fafafa;
+    background: #FF8764;
+} */
 
+
+/* category dropdown box */
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #00ceff;
+    color: #fafafa;
+    background: #FF3900;
 }
 
-
+/* location drop down box */
 a[data-toggle="collapse"] {
     position: relative;
+    
 }
 
+/* for the dropdown box icons */
 a[aria-expanded="false"]::before,
 a[aria-expanded="true"]::before {
     content: '\e259';
@@ -207,10 +210,13 @@ a[aria-expanded="true"]::before {
     right: 20px;
     font-family: 'Glyphicons Halflings';
     font-size: 0.6em;
+    
 }
 
+/* icons when the drop down boxes are expanded */
 a[aria-expanded="true"]::before {
     content: '\e260';
+    
 }
 
 
@@ -241,8 +247,13 @@ img {
     width: 40%;
     margin-left: 21%;
     margin-right:39%;
-    background-color: #00ceff;
     
+    border-radius: 4px;
+    
+}
+
+.btn-custom {
+   background-color: #00ceff; 
 }
 
 
@@ -341,7 +352,7 @@ CONTENT STYLE
     left: 0;
     bottom: 0;
     width: 300px;
-    background-color: #3FEEE6;
+    background-color: #FF3900;
     
     text-align: center;
  }
@@ -354,7 +365,7 @@ MEDIAQUERIES
 
 @media (max-width: 768px) {
     .body {
-        background-color: #3FEEE6;
+        background-color: #fafafa;
     }
     #content {
         width: 100%;
@@ -369,6 +380,10 @@ MEDIAQUERIES
         max-width: 100vw;
         max-height: 25vh;
         top: 0;
+    }
+
+    #sidebar li {
+        background: #FF3900;
     }
 
     .sidebar-header {
@@ -393,7 +408,7 @@ MEDIAQUERIES
     }
 
     .form-check {
-        background-color: slategray;
+        background: #FF3900;
         opacity: 60%;
     }
 
@@ -411,9 +426,9 @@ MEDIAQUERIES
         left: 0;
         bottom: 0;
         width: 100vw;
-        background-color: #3FEEE6;
+        background-color: #FF3900;
         border-top: 10px;
-        border-color: #3FEEE6;
+        border-color: #FF3900;
         text-align: center;
      }
 }
