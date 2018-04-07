@@ -175,14 +175,9 @@ $(document).ready(function() {
             let eventLong = results._embedded.events[0]._embedded.venues[0].location.longitude
             let eventLatLong = `${eventLat},${eventLong}`;
             console.log("the latlong for the first returned event is" + eventLatLong);
-            // end ticketmaster section
         }});  
-
-       
     });
-
-    // this is the location data returned by ticketmaster, it will need to be inside
-    // of a loop to iterate once for each event[i]
+// end of document ready
 });
 
 
