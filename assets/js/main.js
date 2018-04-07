@@ -171,10 +171,10 @@ $(document).ready(function() {
         dataType: "json",
         success: function(results){
             console.log(results);
-            let eventLat = results._embedded.events[1]._embedded.venues[0].location.latitude
+            let eventLat = results._embedded.events[0]._embedded.venues[0].location.latitude
             let eventLong = results._embedded.events[0]._embedded.venues[0].location.longitude
             let eventLatLong = `${eventLat},${eventLong}`;
-            console.log("event latlong is " + eventLatLong);
+            console.log("the latlong for the first returned event is" + eventLatLong);
             // end ticketmaster section
         }});  
 
