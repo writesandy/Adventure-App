@@ -42,6 +42,7 @@ $(document).ready(function() {
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
     let latitude = "";
     let longitude = "";
+
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -76,7 +77,20 @@ $(document).ready(function() {
     });
   }
 
-  $(function() {
+
+
+
+
+
+  $(function(data) {
+
+        $(".zipCode").keydown(function(event) {
+            if (event.keyCode===13) {
+                $("#getAdventure").trigger('click');
+            }
+    
+        });
+
     $("form").submit(function() { return false; });
     });
 
