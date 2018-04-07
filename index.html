@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/geocomplete/1.7.0/jquery.geocomplete.js"></script>
     <!-- Google Maps and Google Maps Places API Import -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSDzgTsHEU_AoRgZ1oyBPhCrM_j9cqpHs&libraries=places"></script>
     <!-- Google Maps Places documentation https://developers.google.com/maps/documentation/javascript/places -->
@@ -35,7 +36,6 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Location</a>
                     <form class="collapse list-unstyled" id="pageSubmenu">
                         <!-- <label> -->
-
                         <!-- <select name="state" class="state-input" id="state">
                             <option value="" selected="selected">Select a State</option>
                             <option value="AL">Alabama</option>
@@ -97,95 +97,43 @@
                     </form>
                     <!-- </label> -->
                 </li>
-                <li>
-                    
-                    <a href="#pageDietmenu" data-toggle="collapse" aria-expanded="false">Categories</a>
-                    <ul class="collapse list-unstyled" id="Kid-Friendly">
 
-                        <!-- <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label> -->
-
-                        <li>
-                            <form class="form-check">
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Concerts</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Sports</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Arts & Theater</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Family</span>
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 05</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 06</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 07</span>
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label>
-                                        <input type="checkbox" name="check">
-                                        <span class="label-text">Option 08</span>
-                                    </label>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                        <li>
-                            <a href="#pageCalmenu" data-toggle="collapse" aria-expanded="false">Concerts</a>
-                            <ul class="collapse list-unstyled" id="pageCalmenu">
+                <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Categories</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
                                 <li>
-                                    <!-- <a href="#">
-                                    <div id="calorie" class="collapse">
-
-                                        <div class="slidecontainer">
-                                            <input type="range" min="1" max="2000" value="800" class="slider" id="myRange">
-                                            <p>Max Calories:
-                                                <span id="calorieSlider"></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a> -->
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                        </li>
-                    </ul>
+                                        <form class="form-check">
+                                            <div class="form-check">
+                                                <label>
+                                                    <input type="checkbox" name="check">
+                                                    <span class="label-text">Concerts</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label>
+                                                    <input type="checkbox" name="check">
+                                                    <span class="label-text">Sports</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label>
+                                                    <input type="checkbox" name="check">
+                                                    <span class="label-text">Arts & Theater</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label>
+                                                    <input type="checkbox" name="check">
+                                                    <span class="label-text">Family</span>
+                                                </label>
+                                            </div>
+            
+                                           
+                                        </form>
+                                    </li>
+                        </ul>
+                    </li>
+              <br>
                     <div class="get-adv-btn">
                         <button type="button" id="getAdventure" class="btn btn-info"><h4>Get my Adventure!</h4></button>
                     </div>

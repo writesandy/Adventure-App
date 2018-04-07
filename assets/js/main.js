@@ -91,6 +91,18 @@ $(document).ready(function() {
         });
     });
 
+    let city = "";
+       $(".city").geocomplete();
+        // Trigger geocoding request by hitting enter on the city field in the HTML
+        $(".city").on("submit", function(event) {
+            event.preventDefault();
+            console.log("Is this working?");
+        // keydown(function(event) {
+        //     if (event.keyCode===13){
+        //        city = $(".city").val(); }
+        //     console.log(city);
+        });
+
     $('#pageSubmenu').on('click', function (event){
         event.preventDefault();
     });
