@@ -193,10 +193,12 @@ function initialize() {
 function createMarker(place) {
     //customization of the icon happens at this line
 //   let iconImage    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(32, 32));
+    let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
     const placeLoc = place.geometry.location;
     marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location
+        position: place.geometry.location,
+        icon: iconImage,
     });
     //opens the infoWindow to show name and other information
     google.maps.event.addDomListener(marker, 'click', function() {
