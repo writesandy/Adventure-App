@@ -45,6 +45,10 @@ $(document).ready(function() {
     });
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
 
+    if(isNaN(zipCode))
+      {
+        $("#pageSubmenu").append("Please enter your number for a zip code");
+      }
 
     $.ajax({
       url: queryURL,
@@ -81,7 +85,7 @@ $(document).ready(function() {
     
   }
 
-  $(function(data) {
+    $(function(data) {
         $(".zipCode").keydown(function(event) {
             if (event.keyCode===13) {
                 $("#getAdventure").trigger('click');
@@ -90,8 +94,15 @@ $(document).ready(function() {
         });
     })
 
+    if ($.isNumeric(zipCode)) {
+         console.log(true);
+    }
+    else {
+        $("#pageSubmenu").append("Please enter your number for a zip code");
+    }
     $(function(data) {
         $(".locationCenter").keydown(function(event) {
+            event.preventDefault();
             if (event.keyCode===13) {
                 $("#getAdventure").trigger('click');
             }
