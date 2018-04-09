@@ -285,8 +285,10 @@ $(document).ready(function() {
                     lng: parseInt(eventLong)
                 }
                 console.log("the name of event number " + [i] + " is " + eventName)
+                $("#pageSubmenu").html("<img src =" + eventImage+ '> <br>'+ eventName + '</img>');
                 console.log("the latlong for event number " + [i] + " is " + eventLatLong);
                 console.log("the event img URL is " + [i] + " is " + eventImage);
+
                 
                 // var newMarker = new google.maps.Marker({
                 //     position: eventLatLong,
