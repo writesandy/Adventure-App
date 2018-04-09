@@ -45,9 +45,9 @@ $(document).ready(function() {
     });
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
 
-    if(isNaN(zipCode)){
-        $("#pageSubmenu").append("Please enter your number for a zip code");
-      }
+    // if(isNaN(zipCode)){
+    //     $("#pageSubmenu").append("Please enter your number for a zip code");
+    //   }
 
     $.ajax({
       url: queryURL,
@@ -129,13 +129,35 @@ $(document).ready(function() {
     
 //   }
 
+    // Handles the zipcode Errors
+    function zipErrorHandling() {
+        let message, x;
+        message = document.getElementById("warning");
+        message.innerHTML = "";
+        x = document.getElementById("zipCodeID").value;
+        console.log("X is coming back as " + x);
+        try { 
+            if(x === "")  throw "Please enter a valid Zip Code";
+            if(isNaN(x)) throw "Please enter a valid Zip Code";
+            // x = Number(x);
+            // if(x < 5)    throw "too low";
+            // if(x > 10)   throw "too high";
+        }
+        catch(err) {
+            message.innerHTML = err;
+        }
+    }
+
     $(function(data) {
         $(".zipCode").keydown(function(event) {
             if (event.keyCode===13) {
-                $("#getAdventure").trigger('click');
+                let zip = $(".zipCode").val().trim();
+                postal.push(zip);
+                // console.log(zip);
+                getCoordinates(zip);
+                $('#warning').empty();
+                zipErrorHandling();
                 $('.zipCode').val('');
-                // $('#pageSubmenu').val('');
-
             }
         });
     })
@@ -146,14 +168,16 @@ $(document).ready(function() {
     // else {
     //     $("#pageSubmenu").append("Please enter your number for a zip code");
     // }
-    $(function(data) {
-        $(".locationCenter").keydown(function(event) {
-            event.preventDefault();
-            if (event.keyCode===13) {
-                $("#getAdventure").trigger('click');
-            }
-        });
-    })
+
+    //started this for the autocomplete on locationCenter input
+    // $(function(data) {
+    //     $(".locationCenter").keydown(function(event) {
+    //         event.preventDefault();
+    //         if (event.keyCode===13) {
+    //             $("#getAdventure").trigger('click');
+    //         }
+    //     });
+    // })
 
     $(function() {
         $("form").submit(function() { 
@@ -191,7 +215,8 @@ $(document).ready(function() {
         postal.push(zip);
         // console.log(zip);
         getCoordinates(zip);
-        // $('#pageSubmenu').val('');
+        $('#warning').empty();
+        zipErrorHandling();
         $('.zipCode').val('');
 
         // $('#getAdventure').on("click", function (event) {
