@@ -139,7 +139,7 @@ $(document).ready(function() {
         console.log(x.length);
         try { 
             if(x === "")  throw "Please enter a valid Zip Code";
-            if(isNaN(x)) throw "Please enter a valid Zip Code";
+            if(isNaN(x)) throw "Please enter only numbers for the Zip Code";
             oninvalid="this.setCustomValidity('Please enter 5 digits only')"
              //x = Number(x);
             if(x.length < 5)    throw "Please enter 5 characters";
