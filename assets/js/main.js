@@ -285,7 +285,7 @@ $(document).ready(function() {
                     lng: parseInt(eventLong)
                 }
                 console.log("the name of event number " + [i] + " is " + eventName)
-                $("#pageSubmenu").html("<img src =" + eventImage+ '> <br>'+ eventName + '</img>');
+                $(".footer").prepend("<img src =" + eventImage+ '> <br>'+ eventName);
                 console.log("the latlong for event number " + [i] + " is " + eventLatLong);
                 console.log("the event img URL is " + [i] + " is " + eventImage);
 
