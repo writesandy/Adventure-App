@@ -1,3 +1,5 @@
+
+
 'use strict';
 
 $(document).ready(function() {
@@ -35,56 +37,7 @@ $(document).ready(function() {
   let city = [];
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
-//   function getCoordinates(zipCode) {
-    
-//     // read the value of gck from the database
-//     database.ref().on("value", function(snapshot) {
-//       let geoCodeKey = snapshot.val().gck;
-//     //   console.log("gck is " + geoCodeKey);
-//       return geoCodeKey;
-//     });
-//     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
-
-//     // if(isNaN(zipCode)){
-//     //     $("#pageSubmenu").append("Please enter your number for a zip code");
-//     //   }
-
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET",
-//       dataType: "json",
-//       success: function(response){
-//     //   console.log(response);
-//             latitude = response.results[0].geometry.location.lat;
-//             longitude= response.results[0].geometry.location.lng;
-//             // console.log("Lat = "+latitude+"- Long = "+longitude);
-//             // console.log("returnzip inside the func is " + returnZip);
-//             map.setCenter({lat: latitude, lng: longitude});
-//             google.maps.event.addListener(map,'bounds_changed', function(event) {
-//                 // init nearbySearch
-//                 function callback(results, status) {
-//                     if(status == google.maps.places.PlacesServiceStatus.OK){
-//                         for (var i = 0; i < results.length; i++){
-//                             markers.push(createMarker(results[i]));
-//                         }
-//                     }
-//                 }
-//                 //finds the type of place once the user location is determined
-//                 request = {
-//                     location: map.getCenter(),
-//                     radius: 6000,
-//                     types: ['museum'],
-//                 };
-//                 // puts the locations on the map
-//                 service.nearbySearch(request, callback);           
-//             })
-//       }
-      
-//     });
-    
-//   }
-
-  function getCoordinates(location) {
+  function getCoordinates(zipCode) {
     
     // read the value of gck from the database
     database.ref().on("value", function(snapshot) {
@@ -92,7 +45,11 @@ $(document).ready(function() {
     //   console.log("gck is " + geoCodeKey);
       return geoCodeKey;
     });
-    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + location + "&key=" + geoCodeKey;
+    let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
+
+    // if(isNaN(zipCode)){
+    //     $("#pageSubmenu").append("Please enter your number for a zip code");
+    //   }
 
     $.ajax({
       url: queryURL,
@@ -129,6 +86,51 @@ $(document).ready(function() {
     
   }
 
+//   function getCoordinates(location) {
+    
+//     // read the value of gck from the database
+//     database.ref().on("value", function(snapshot) {
+//       let geoCodeKey = snapshot.val().gck;
+//     //   console.log("gck is " + geoCodeKey);
+//       return geoCodeKey;
+//     });
+//     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=city:" + location + "&key=" + geoCodeKey;
+
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET",
+//       dataType: "json",
+//       success: function(response){
+//     //   console.log(response);
+//             latitude = response.results[0].geometry.location.lat;
+//             longitude= response.results[0].geometry.location.lng;
+//             // console.log("Lat = "+latitude+"- Long = "+longitude);
+//             // console.log("returnzip inside the func is " + returnZip);
+//             map.setCenter({lat: latitude, lng: longitude});
+//             google.maps.event.addListener(map,'bounds_changed', function(event) {
+//                 // init nearbySearch
+//                 function callback(results, status) {
+//                     if(status == google.maps.places.PlacesServiceStatus.OK){
+//                         for (var i = 0; i < results.length; i++){
+//                             markers.push(createMarker(results[i]));
+//                         }
+//                     }
+//                 }
+//                 //finds the type of place once the user location is determined
+//                 request = {
+//                     location: map.getCenter(),
+//                     radius: 6000,
+//                     types: ['museum'],
+//                 };
+//                 // puts the locations on the map
+//                 service.nearbySearch(request, callback);           
+//             })
+//       }
+      
+//     });
+    
+//   }
+
     // Handles the zipcode Errors
     function zipErrorHandling() {
         let message, x;
@@ -139,7 +141,7 @@ $(document).ready(function() {
         console.log(x.length);
         try { 
             if(x === "")  throw "Please enter a valid Zip Code";
-            if(isNaN(x)) throw "Please enter only numbers for the Zip Code";
+            if(isNaN(x)) throw "Please enter a valid Zip Code";
             oninvalid="this.setCustomValidity('Please enter 5 digits only')"
              //x = Number(x);
             if(x.length < 5)    throw "Please enter 5 characters";
@@ -189,21 +191,21 @@ $(document).ready(function() {
 
     // This autocompletes the locationCenter input field
 
-    const input = document.getElementById('locationCenter');
-    // maps.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    const autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+    // const input = document.getElementById('locationCenter');
+    // // maps.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // const autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
 
-    let locationAutoComplete = "";
-       $(".locationCenter").geocomplete();
-        // Trigger geocoding request by hitting enter on the city field in the HTML
-        $(".locationCenter").on("submit", function(event) {
-            event.preventDefault();
-            // console.log("Is this working?");
-        // keydown(function(event) {
-        //     if (event.keyCode===13){
-        //        city = $(".city").val(); }
-        //     console.log(city);
-        });
+    // let locationAutoComplete = "";
+    //    $(".locationCenter").geocomplete();
+    //     // Trigger geocoding request by hitting enter on the city field in the HTML
+    //     $(".locationCenter").on("submit", function(event) {
+    //         event.preventDefault();
+    //         // console.log("Is this working?");
+    //     // keydown(function(event) {
+    //     //     if (event.keyCode===13){
+    //     //        city = $(".city").val(); }
+    //     //     console.log(city);
+    //     });
 
     $('#pageSubmenu').on('click', function (event){
         event.preventDefault();
@@ -216,11 +218,10 @@ $(document).ready(function() {
         let zip = $(".zipCode").val().trim();
         postal.push(zip);
         // console.log(zip);
-        // getCoordinates(zip);
+        getCoordinates(zip);
         $('#warning').empty();
         zipErrorHandling();
         $('.zipCode').val('');
-    });
 
         let classificationName = "&classificationName=";
         let familyFriendly = "";
@@ -246,15 +247,14 @@ $(document).ready(function() {
 
         // end event cateogory logic
 
-        $('#getAdventure').on("click", function (event) {
-        event.preventDefault();
-        let cityLocation = $("#locationCenter").val();
-        console.log('This is our city ' + cityLocation);
-        city.push(cityLocation);
-        getCoordinates(cityLocation);
+        // $('#getAdventure').on("click", function (event) {
+        // event.preventDefault();
+        // let cityLocation = $(".locationCenter").val();
+        // city.push(cityLocation);
+        // console.log(cityLocation);
+        // getCoordinates(cityLocation);
 
-        $('.locationCenter').val('');
-        });
+        // $('.locationCenter').val('');
 
     // TICKETMASTER SECTION!!!!!!!!!!!!!! 
     database.ref().on("value", function(snapshot) {
@@ -299,23 +299,27 @@ $(document).ready(function() {
         dataType: "json",
         success: function(results){
             console.log(results);
-            for (var i=0; i<results._embedded.events.length;i++)
-            {
+            //for (var i=0; i<2;i++)
+            //{
+           //console.log("the name of event number " + [i] + " is " + eventName)
+        //    $(".footer").prepend('<ul class="list-group">');}
+        for (var i=0; i<results._embedded.events.length;i++)
+        {
                 let eventLat = results._embedded.events[i]._embedded.venues[0].location.latitude;
                 let eventLong = results._embedded.events[i]._embedded.venues[0].location.longitude;
                 let eventName = results._embedded.events[i].name;
                 let eventImage = results._embedded.events[i].images[0].url;
-                let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
+                //$(".footer").prepend('<div class="media-left"><img class="media-object" alt="ticketmaster event image" src =' + eventImage+'></div>'+'<div class="media-body"><h3 class="media-heading">'+eventName+'</h3></div>');
+                //let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
                 let eventLatLong = {
                     lat: parseInt(eventLat),
                     lng: parseInt(eventLong)
                 }
-                console.log("The event url " [i]+ "is" + eventURL)
                 console.log("the name of event number " + [i] + " is " + eventName)
-                $(".footer").prepend('<div class="media-left"><img src =' + eventImage+'>'+'<br><h3>' +eventName+'</h3></div>');
+               // $(".footer").append('<ul class="list-group"><li class="list-group-item"><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></li></ul></div>');
+                $(".footer").append('<tr><td><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></td></tr>');
                 console.log("the latlong for event number " + [i] + " is " + eventLatLong);
-                console.log("the event img URL is " + [i] + " is " + eventImage);
-
+                 //}
                 
                 // var newMarker = new google.maps.Marker({
                 //     position: eventLatLong,
@@ -344,7 +348,7 @@ $(document).ready(function() {
     
 
 // end of document ready
-// });
+});
 
 
 let map;
