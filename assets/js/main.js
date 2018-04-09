@@ -150,6 +150,9 @@ $(document).ready(function() {
 
         if(dd<10) {
             dd = '0'+dd
+        } 
+
+        if(tmdd<10) {
             tmdd = '0'+tmdd;
         } 
 
