@@ -47,7 +47,7 @@ $(document).ready(function() {
 
     if(isNaN(zipCode))
       {
-        $("#pageSubmenu").append("Please enter your number for a zip code");
+        $("#pageSubmenu").append("Please enter a number for a zip code");
       }
 
     $.ajax({
