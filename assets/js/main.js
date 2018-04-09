@@ -222,18 +222,18 @@ $(document).ready(function() {
         $('.zipCode').val('');
     });
 
-        let classificationName = [];
-        let familyFriendly = ""
+        let classificationName = "&classificationName=";
+        let familyFriendly = "";
         if(document.getElementById('cboxcon').checked) {
-            console.log("concert checked")
+            console.log("Music,")
+            classificationName+="Music,"
             // adds "Music" to classificationName array
         }
         if(document.getElementById('cboxsport').checked) {
-            console.log("sports checked")
-            // adds "Sports" to classificationName array
+            classificationName+="Sports,"
         }
         if(document.getElementById('cboxart').checked) {
-            console.log("art checked")
+            classificationName+="Arts,"
             // adds  "Arts" to classificationName array
         }
         if(document.getElementById('cboxfamily').checked) {
@@ -241,7 +241,12 @@ $(document).ready(function() {
             familyFriendly = "&includeFamily=yes";
             // adds includeFamily=yes to the queryString
         }
+<<<<<<< HEAD
+    // });
+=======
+        console.log("classificationName is " + classificationName)
 
+>>>>>>> cd111b7b14634d2df159c0f3b0f2846994827ed1
         // end event cateogory logic
 
         $('#getAdventure').on("click", function (event) {
@@ -289,7 +294,7 @@ $(document).ready(function() {
         let latlong = latitude + ","  + longitude;
         console.log("latlong is " + latlong)
     
-    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}${familyFriendly}`;
+    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}${classificationName}${familyFriendly}`;
     console.log(eventQueryURL)
     $.ajax({
         url: eventQueryURL,
@@ -308,7 +313,7 @@ $(document).ready(function() {
                     lng: parseInt(eventLong)
                 }
                 console.log("the name of event number " + [i] + " is " + eventName)
-                $(".footer").prepend("<img src =" + eventImage+ '> <br>'+ eventName);
+                $(".footer").prepend("<img src =" + eventImage+ '>'+'<br><h3>' +eventName+'</h3><br></img>')
                 console.log("the latlong for event number " + [i] + " is " + eventLatLong);
                 console.log("the event img URL is " + [i] + " is " + eventImage);
 
