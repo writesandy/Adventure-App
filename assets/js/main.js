@@ -240,12 +240,9 @@ $(document).ready(function() {
             familyFriendly = "&includeFamily=yes";
             // adds includeFamily=yes to the queryString
         }
-<<<<<<< HEAD
     // });
-=======
         console.log("classificationName is " + classificationName)
 
->>>>>>> cd111b7b14634d2df159c0f3b0f2846994827ed1
         // end event cateogory logic
 
         // $('#getAdventure').on("click", function (event) {
@@ -306,12 +303,14 @@ $(document).ready(function() {
                 let eventLong = results._embedded.events[i]._embedded.venues[0].location.longitude;
                 let eventName = results._embedded.events[i].name;
                 let eventImage = results._embedded.events[i].images[0].url;
+                let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
                 let eventLatLong = {
                     lat: parseInt(eventLat),
                     lng: parseInt(eventLong)
                 }
+                console.log("The event url " [i]+ "is" + eventURL)
                 console.log("the name of event number " + [i] + " is " + eventName)
-                $(".footer").prepend("<img src =" + eventImage+ '>'+'<br><h3>' +eventName+'</h3><br></img>')
+                $(".footer").prepend('<div class="media-left"><img src =' + eventImage+'>'+'<br><h3>' +eventName+'</h3></div>');
                 console.log("the latlong for event number " + [i] + " is " + eventLatLong);
                 console.log("the event img URL is " + [i] + " is " + eventImage);
 

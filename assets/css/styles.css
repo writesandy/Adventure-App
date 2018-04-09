@@ -370,10 +370,11 @@ CONTENT STYLE
  }
 
  .footer img {
+    margin: 10px;
     float: left;
     height: 50px;
     width: 50px;
-    position: left;
+    position: block;
  }
 
  .footer h3 {
@@ -382,9 +383,18 @@ CONTENT STYLE
     font-weight: 300;
     line-height: 1.7em;
     color:white;
-    margin-left: 20px;
+    margin: 10px;
+    float: right;
 }
-
+.footer ul {
+    font-family: sans-serif;
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color:white;
+    margin: 10px;
+    float: left;
+}
 
 /* ---------------------------------------------------
 MEDIAQUERIES
