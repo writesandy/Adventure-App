@@ -221,6 +221,28 @@ $(document).ready(function() {
         zipErrorHandling();
         $('.zipCode').val('');
 
+        let classificationName = [];
+        let familyFriendly = ""
+        if(document.getElementById('cboxcon').checked) {
+            console.log("concert checked")
+            // adds "Music" to classificationName array
+        }
+        if(document.getElementById('cboxsport').checked) {
+            console.log("sports checked")
+            // adds "Sports" to classificationName array
+        }
+        if(document.getElementById('cboxart').checked) {
+            console.log("art checked")
+            // adds  "Arts" to classificationName array
+        }
+        if(document.getElementById('cboxfamily').checked) {
+            console.log("family checked")
+            familyFriendly = "&includeFamily=yes";
+            // adds includeFamily=yes to the queryString
+        }
+
+        // end event cateogory logic
+
         // $('#getAdventure').on("click", function (event) {
         // event.preventDefault();
         // let cityLocation = $(".locationCenter").val();
@@ -237,7 +259,6 @@ $(document).ready(function() {
         let eventCategory = "";
         const radius = 25;
         const unit = "miles"
-        
 
         var today = new Date();
         var dd = today.getDate();
@@ -247,6 +268,9 @@ $(document).ready(function() {
 
         if(dd<10) {
             dd = '0'+dd
+        } 
+
+        if(tmdd<10) {
             tmdd = '0'+tmdd;
         } 
 
@@ -263,7 +287,7 @@ $(document).ready(function() {
         let latlong = latitude + ","  + longitude;
         console.log("latlong is " + latlong)
     
-    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}`;
+    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}${familyFriendly}`;
     console.log(eventQueryURL)
     $.ajax({
         url: eventQueryURL,
@@ -282,8 +306,10 @@ $(document).ready(function() {
                     lng: parseInt(eventLong)
                 }
                 console.log("the name of event number " + [i] + " is " + eventName)
+                $(".footer").prepend("<img src =" + eventImage+ '> <br>'+ eventName);
                 console.log("the latlong for event number " + [i] + " is " + eventLatLong);
                 console.log("the event img URL is " + [i] + " is " + eventImage);
+
                 
                 // var newMarker = new google.maps.Marker({
                 //     position: eventLatLong,
