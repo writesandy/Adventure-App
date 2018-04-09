@@ -221,18 +221,18 @@ $(document).ready(function() {
         zipErrorHandling();
         $('.zipCode').val('');
 
-        // event category logic
+        let classificationName = [];
         if(document.getElementById('cboxcon').checked) {
             console.log("concert checked")
-            // adds music to event type
+            // adds "Music" to classificationName array
         }
         if(document.getElementById('cboxsport').checked) {
             console.log("sports checked")
-            // adds sports to event type
+            // adds "Sports" to classificationName array
         }
         if(document.getElementById('cboxart').checked) {
             console.log("art checked")
-            // adds  art&theater to event type
+            // adds  "Arts" to classificationName array
         }
         if(document.getElementById('cboxfamily').checked) {
             console.log("family checked")
