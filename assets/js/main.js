@@ -222,6 +222,7 @@ $(document).ready(function() {
         $('.zipCode').val('');
 
         let classificationName = [];
+        let familyFriendly = ""
         if(document.getElementById('cboxcon').checked) {
             console.log("concert checked")
             // adds "Music" to classificationName array
@@ -236,6 +237,7 @@ $(document).ready(function() {
         }
         if(document.getElementById('cboxfamily').checked) {
             console.log("family checked")
+            familyFriendly = "&includeFamily=yes";
             // adds includeFamily=yes to the queryString
         }
 
@@ -285,7 +287,7 @@ $(document).ready(function() {
         let latlong = latitude + ","  + longitude;
         console.log("latlong is " + latlong)
     
-    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}`;
+    const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}${familyFriendly}`;
     console.log(eventQueryURL)
     $.ajax({
         url: eventQueryURL,
