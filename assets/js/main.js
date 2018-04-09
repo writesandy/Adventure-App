@@ -221,6 +221,26 @@ $(document).ready(function() {
         zipErrorHandling();
         $('.zipCode').val('');
 
+        // event category logic
+        if(document.getElementById('cboxcon').checked) {
+            console.log("concert checked")
+            // adds music to event type
+        }
+        if(document.getElementById('cboxsport').checked) {
+            console.log("sports checked")
+            // adds sports to event type
+        }
+        if(document.getElementById('cboxart').checked) {
+            console.log("art checked")
+            // adds  art&theater to event type
+        }
+        if(document.getElementById('cboxfamily').checked) {
+            console.log("family checked")
+            // adds includeFamily=yes to the queryString
+        }
+
+        // end event cateogory logic
+
         // $('#getAdventure').on("click", function (event) {
         // event.preventDefault();
         // let cityLocation = $(".locationCenter").val();
@@ -237,7 +257,6 @@ $(document).ready(function() {
         let eventCategory = "";
         const radius = 25;
         const unit = "miles"
-        
 
         var today = new Date();
         var dd = today.getDate();
