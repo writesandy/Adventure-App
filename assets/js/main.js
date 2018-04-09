@@ -136,12 +136,14 @@ $(document).ready(function() {
         message.innerHTML = "";
         x = document.getElementById("zipCodeID").value;
         console.log("X is coming back as " + x);
+        console.log(x.length);
         try { 
             if(x === "")  throw "Please enter a valid Zip Code";
             if(isNaN(x)) throw "Please enter a valid Zip Code";
-            // x = Number(x);
-            // if(x < 5)    throw "too low";
-            // if(x > 10)   throw "too high";
+            oninvalid="this.setCustomValidity('Please enter 5 digits only')"
+             //x = Number(x);
+            if(x.length < 5)    throw "Please enter 5 characters";
+            if(x.length > 10)   throw "Please only enter 5 characters";
         }
         catch(err) {
             message.innerHTML = err;
