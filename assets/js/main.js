@@ -238,7 +238,7 @@ $(document).ready(function() {
             console.log("family checked")
             // adds includeFamily=yes to the queryString
         }
-
+    // });
         // end event cateogory logic
 
         // $('#getAdventure').on("click", function (event) {
@@ -304,7 +304,7 @@ $(document).ready(function() {
                     lng: parseInt(eventLong)
                 }
                 console.log("the name of event number " + [i] + " is " + eventName)
-                $(".footer").prepend("<img src =" + eventImage+ '> <br>'+ eventName);
+                $(".footer").prepend("<img src =" + eventImage+ '>'+'<br><h3>' +eventName+'</h3><br></img>')
                 console.log("the latlong for event number " + [i] + " is " + eventLatLong);
                 console.log("the event img URL is " + [i] + " is " + eventImage);
 
