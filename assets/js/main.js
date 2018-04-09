@@ -32,7 +32,7 @@ $(document).ready(function() {
   let postal = [];
   let zipCode = $(this).attr("data-name");
   let latlong = "";
-
+  let city = [];
 //checked the queryURL and it does bring back a value. Still working on working ajax call
 
   function getCoordinates(zipCode) {
@@ -45,9 +45,8 @@ $(document).ready(function() {
     });
     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=postal_code:" + zipCode + "&key=" + geoCodeKey;
 
-    if(isNaN(zipCode))
-      {
-        $("#pageSubmenu").append("Please enter a number for a zip code");
+    if(isNaN(zipCode)){
+        $("#pageSubmenu").append("Please enter your number for a zip code");
       }
 
     $.ajax({
@@ -85,21 +84,68 @@ $(document).ready(function() {
     
   }
 
+//   function getCoordinates(location) {
+    
+//     // read the value of gck from the database
+//     database.ref().on("value", function(snapshot) {
+//       let geoCodeKey = snapshot.val().gck;
+//     //   console.log("gck is " + geoCodeKey);
+//       return geoCodeKey;
+//     });
+//     let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?components=city:" + location + "&key=" + geoCodeKey;
+
+//     $.ajax({
+//       url: queryURL,
+//       method: "GET",
+//       dataType: "json",
+//       success: function(response){
+//     //   console.log(response);
+//             latitude = response.results[0].geometry.location.lat;
+//             longitude= response.results[0].geometry.location.lng;
+//             // console.log("Lat = "+latitude+"- Long = "+longitude);
+//             // console.log("returnzip inside the func is " + returnZip);
+//             map.setCenter({lat: latitude, lng: longitude});
+//             google.maps.event.addListener(map,'bounds_changed', function(event) {
+//                 // init nearbySearch
+//                 function callback(results, status) {
+//                     if(status == google.maps.places.PlacesServiceStatus.OK){
+//                         for (var i = 0; i < results.length; i++){
+//                             markers.push(createMarker(results[i]));
+//                         }
+//                     }
+//                 }
+//                 //finds the type of place once the user location is determined
+//                 request = {
+//                     location: map.getCenter(),
+//                     radius: 6000,
+//                     types: ['museum'],
+//                 };
+//                 // puts the locations on the map
+//                 service.nearbySearch(request, callback);           
+//             })
+//       }
+      
+//     });
+    
+//   }
+
     $(function(data) {
         $(".zipCode").keydown(function(event) {
             if (event.keyCode===13) {
                 $("#getAdventure").trigger('click');
                 $('.zipCode').val('');
+                // $('#pageSubmenu').val('');
+
             }
         });
     })
 
-    if ($.isNumeric(zipCode)) {
-         console.log(true);
-    }
-    else {
-        $("#pageSubmenu").append("Please enter your number for a zip code");
-    }
+    // if ($.isNumeric(zipCode)) {
+    //     //  console.log(true);
+    // }
+    // else {
+    //     $("#pageSubmenu").append("Please enter your number for a zip code");
+    // }
     $(function(data) {
         $(".locationCenter").keydown(function(event) {
             event.preventDefault();
@@ -117,17 +163,21 @@ $(document).ready(function() {
 
     // This autocompletes the locationCenter input field
 
-    let locationAutoComplete = "";
-       $(".locationCenter").geocomplete();
-        // Trigger geocoding request by hitting enter on the city field in the HTML
-        $(".locationCenter").on("submit", function(event) {
-            event.preventDefault();
-            console.log("Is this working?");
-        // keydown(function(event) {
-        //     if (event.keyCode===13){
-        //        city = $(".city").val(); }
-        //     console.log(city);
-        });
+    // const input = document.getElementById('locationCenter');
+    // // maps.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    // const autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+
+    // let locationAutoComplete = "";
+    //    $(".locationCenter").geocomplete();
+    //     // Trigger geocoding request by hitting enter on the city field in the HTML
+    //     $(".locationCenter").on("submit", function(event) {
+    //         event.preventDefault();
+    //         // console.log("Is this working?");
+    //     // keydown(function(event) {
+    //     //     if (event.keyCode===13){
+    //     //        city = $(".city").val(); }
+    //     //     console.log(city);
+    //     });
 
     $('#pageSubmenu').on('click', function (event){
         event.preventDefault();
@@ -141,8 +191,17 @@ $(document).ready(function() {
         postal.push(zip);
         // console.log(zip);
         getCoordinates(zip);
-
+        // $('#pageSubmenu').val('');
         $('.zipCode').val('');
+
+        // $('#getAdventure').on("click", function (event) {
+        // event.preventDefault();
+        // let cityLocation = $(".locationCenter").val();
+        // city.push(cityLocation);
+        // console.log(cityLocation);
+        // getCoordinates(cityLocation);
+
+        // $('.locationCenter').val('');
 
     // TICKETMASTER SECTION!!!!!!!!!!!!!! 
     database.ref().on("value", function(snapshot) {
@@ -238,7 +297,13 @@ let marker;
 let pos;
 let newRequest;
 let callback;
-
+// let defaultBounds = new google.maps.LatLngBounds(
+//     new google.maps.LatLng (44.986656, -93.258133),
+//     new google.maps.LatLng (44.936656, -93.348133),
+// )
+// let options = {
+//     bouncds: defaultBounds
+// };
 
 function initialize() {
 // console.log('map loaded');
