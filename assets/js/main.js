@@ -330,12 +330,13 @@ $(document).ready(function() {
                      icon: iconImage,
                      title: eventName
                    });
-
+                   
                    var infowindow = new google.maps.InfoWindow({
                     content: "<img src=" + eventImage + " style='height:65px;width:120px'><p>" + eventName + "</p>"
                   });
 
                    newMark.addListener('click', function() {
+                    infowindow.close();
                     infowindow.open(map, newMark);
                   });
 
