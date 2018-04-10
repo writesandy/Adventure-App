@@ -369,7 +369,6 @@ $(document).ready(function() {
         $('.zipCode').val('');
         ticketMaster();
 
-<<<<<<< HEAD
         let classificationName = "&classificationName=";
         let familyFriendly = "";
         if(document.getElementById('cboxcon').checked) {
@@ -491,8 +490,6 @@ $(document).ready(function() {
             
         }});  
     });
-=======
->>>>>>> 6564f28f9ee02020a9dd25a0a2020d441b405491
     });
 
     // $('#getAdventure').on("click", function (event) {
