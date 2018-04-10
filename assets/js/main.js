@@ -166,6 +166,12 @@ $(document).ready(function() {
                     let eventName = results._embedded.events[i].name;
                     let eventImage = results._embedded.events[i].images[0].url;
                     let eventInfo = results._embedded.events[i].info;
+                    let eventInfoDisplay ="";
+                    if (results._embedded.events[i].info !== undefined)
+                    {
+                        eventInfoDisplay=results._embedded.events[i].info;
+                        console.log("there IS event info to display")
+                    }
                     let venueURL = results._embedded.events[i]._embedded.venues[0].url;
                     let venueName = results._embedded.events[i]._embedded.venues[0].name;
                     let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
@@ -189,7 +195,7 @@ $(document).ready(function() {
                         title: eventName
                       });
                        infowindow = new google.maps.InfoWindow({
-                      content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image;" class = "concerts;"  id="concerts"; style = align:"middle"; height="65"; width="120";>'+ '<a href="' + venueURL + '" style = center; color #999>' + eventName + '</a><p> at ' + venueName +"</p>"
+                      content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image;" class = "concerts;"  id="concerts"; style = align:"middle"; height="65"; width="120";>'+ '<a href="' + venueURL + '" target="_blank" style = center; color #999>' + eventName + '</a><div style="text-size:8px;"> at ' + venueName + "</div>"
                      });
                      bindInfoWindow(newMark,map,infowindow);
                 }
