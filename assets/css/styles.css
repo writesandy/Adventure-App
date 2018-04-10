@@ -25,6 +25,7 @@ p {
     padding: 10px;
 }
 
+
 sub {
     font-size: .6em;
     font-family: sans-serif;
@@ -395,7 +396,22 @@ CONTENT STYLE
     margin: 10px;
     float: left;
 }
+.img concerts {
+    height: 65px;
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+
+#concerts {
+    height: 65px;
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* ---------------------------------------------------
 MEDIAQUERIES
 ----------------------------------------------------- */
@@ -446,6 +462,10 @@ MEDIAQUERIES
         margin-right: -10px;
     }
 
+    img .concerts {
+        height: 65px;
+        width: 120px
+    }
     .input-text {
         background: #FF3900;
     }
