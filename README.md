@@ -18,7 +18,6 @@
 (This takes any changes from MASTER and merges them BACK TO develop)
 
 # GroupProject Adventure App
-<<<<<<< HEAD
 This is our Adventure App for Things to do today
 Saundra Rikki Brandon Joe Thomas
 
