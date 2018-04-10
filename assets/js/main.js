@@ -228,47 +228,10 @@ $(document).ready(function() {
         }
 
         function ticketMaster(){
-            let classificationName = "&classificationName=";
-            let familyFriendly = "";
-            if(document.getElementById('cboxcon').checked) {
-                console.log("Music,")
-                classificationName+="Music,"
-                // adds "Music" to classificationName array
-                $('#cboxcon').prop('checked', false);
-            }
-            if(document.getElementById('cboxsport').checked) {
-                classificationName+="Sports,"
-                $('#cboxsport').prop('checked', false);
-            }
-            if(document.getElementById('cboxart').checked) {
-                classificationName+="Arts,"
-                // adds  "Arts" to classificationName array
-                $('#cboxart').prop('checked', false);
-            }
-            if(document.getElementById('cboxfamily').checked) {
-                console.log("family checked")
-                familyFriendly = "&includeFamily=yes";
-                // adds includeFamily=yes to the queryString
-                $('#cboxfamily').prop('checked', false);
-            }
-        // });
-            console.log("classificationName is " + classificationName)
-    
-            // end event cateogory logic
-    
-            // $('#getAdventure').on("click", function (event) {
-            // event.preventDefault();
-            // let cityLocation = $(".locationCenter").val();
-            // city.push(cityLocation);
-            // console.log(cityLocation);
-            // getCoordinates(cityLocation);
-    
-            // $('.locationCenter').val('');
-    
-        // TICKETMASTER SECTION!!!!!!!!!!!!!! 
+            
+        // get the ticketmaster API key from the database    
         database.ref().on("value", function(snapshot) {
             tmk = snapshot.val().tmk;
-            console.log("tmk is " + tmk);
             let eventCategory = "";
             const radius = 25;
             const unit = "miles"
