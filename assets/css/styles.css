@@ -15,7 +15,7 @@ p {
 #pageSubmenu {
     font-family: sans-serif;
     background: #FF3900;
-    margin-left: 5px;
+    margin-left: 18px;
     padding-top: 10px;
 
 }
@@ -418,8 +418,9 @@ MEDIAQUERIES
 ----------------------------------------------------- */
 
 @media (max-width: 768px) {
-    .body {
-        background-color: #fafafa;
+    
+    body {
+        background-color: #FF3900;
     }
     #content {
         width: 100%;
@@ -449,6 +450,10 @@ MEDIAQUERIES
         margin: 0;
     }
 
+    #pageSubmenu {
+        margin-left: 23%;
+    }
+
     h1 {
         font-size: 1.7em;
     font-weight: 300;
@@ -473,6 +478,7 @@ MEDIAQUERIES
     }
     .input-text {
         background: #FF3900;
+        margin-left: 20%;
     }
     
 
@@ -510,10 +516,15 @@ MEDIAQUERIES
         border-top: 10px;
         border-color: #FF3900;
      }
+
+     sub {
+         margin-left: -10px;
+     }
 }
 
 @media (min-width: 769px) {
- 
+    
+     
     .results {
         margin-left: 310px;
     }
