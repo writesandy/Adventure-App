@@ -162,6 +162,7 @@ $(document).ready(function() {
                 $('#warning').empty();
                 zipErrorHandling();
                 $('.zipCode').val('');
+                ticketMaster();
             }
         });
     })
@@ -219,6 +220,142 @@ $(document).ready(function() {
         })
      }
 
+        // this function is used later to append the infowindow to the eventmarker on the map 
+        function bindInfoWindow(newMark,map,infowindow){
+            newMark.addListener('click', function() {
+            infowindow.close();
+            infowindow.open(map, newMark);
+            })
+        }
+
+        function ticketMaster(){
+            let classificationName = "&classificationName=";
+            let familyFriendly = "";
+            if(document.getElementById('cboxcon').checked) {
+                console.log("Music,")
+                classificationName+="Music,"
+                // adds "Music" to classificationName array
+                $('#cboxcon').prop('checked', false);
+            }
+            if(document.getElementById('cboxsport').checked) {
+                classificationName+="Sports,"
+                $('#cboxsport').prop('checked', false);
+            }
+            if(document.getElementById('cboxart').checked) {
+                classificationName+="Arts,"
+                // adds  "Arts" to classificationName array
+                $('#cboxart').prop('checked', false);
+            }
+            if(document.getElementById('cboxfamily').checked) {
+                console.log("family checked")
+                familyFriendly = "&includeFamily=yes";
+                // adds includeFamily=yes to the queryString
+                $('#cboxfamily').prop('checked', false);
+            }
+        // });
+            console.log("classificationName is " + classificationName)
+    
+            // end event cateogory logic
+    
+            // $('#getAdventure').on("click", function (event) {
+            // event.preventDefault();
+            // let cityLocation = $(".locationCenter").val();
+            // city.push(cityLocation);
+            // console.log(cityLocation);
+            // getCoordinates(cityLocation);
+    
+            // $('.locationCenter').val('');
+    
+        // TICKETMASTER SECTION!!!!!!!!!!!!!! 
+        database.ref().on("value", function(snapshot) {
+            tmk = snapshot.val().tmk;
+            console.log("tmk is " + tmk);
+            let eventCategory = "";
+            const radius = 25;
+            const unit = "miles"
+    
+            var today = new Date();
+            var dd = today.getDate();
+            var tmdd = today.getDate()+1;
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+    
+            if(dd<10) {
+                dd = '0'+dd
+            } 
+    
+            if(tmdd<10) {
+                tmdd = '0'+tmdd;
+            } 
+    
+            if(mm<10) {
+                mm = '0'+mm
+            } 
+    
+            let todayString = `${yyyy}-${mm}-${dd}T00:00:00Z`
+            console.log("todayString is " + todayString)
+            
+            let tomorrowString = `${yyyy}-${mm}-${tmdd}T00:00:00Z`
+            console.log("tomorrowString is " + tomorrowString);
+    
+            let latlong = latitude + ","  + longitude;
+            console.log("latlong is " + latlong)
+        
+        const eventQueryURL = `http://app.ticketmaster.com/discovery/v2/events.json?apikey=${tmk}&keyword=${eventCategory}&geoPoint=${latlong}&radius=${radius}&unit=${unit}&startDateTime=${todayString}&endDateTime=${tomorrowString}${classificationName}${familyFriendly}`;
+        console.log(eventQueryURL)
+        $.ajax({
+            url: eventQueryURL,
+            method: "GET",
+            dataType: "json",
+            success: function(results){
+                console.log(results);
+                //for (var i=0; i<2;i++)
+                //{
+               //console.log("the name of event number " + [i] + " is " + eventName)
+            //    $(".footer").prepend('<ul class="list-group">');}
+            for (var i=0; i<results._embedded.events.length;i++)
+            {
+                    let eventLat = results._embedded.events[i]._embedded.venues[0].location.latitude;
+                    let eventLong = results._embedded.events[i]._embedded.venues[0].location.longitude;
+                    let eventName = results._embedded.events[i].name;
+                    let eventImage = results._embedded.events[i].images[0].url;
+                    let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
+                    let eventUrl = results._embedded.events["0"].url
+                    let str = "Get Tickets Here";
+                    let result = str.link(eventUrl, '_blank');
+                    //$(".footer").prepend('<div class="media-left"><img class="media-object" alt="ticketmaster event image" src =' + eventImage+'></div>'+'<div class="media-body"><h3 class="media-heading">'+eventName+'</h3></div>');
+                    //let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
+                    let eventLatLong = {
+                        lat: parseInt(eventLat),
+                        lng: parseInt(eventLong)
+                    }
+            
+                   // $(".footer").append('<ul class="list-group"><li class="list-group-item"><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></li></ul></div>');
+                   // $(".footer").append('<tr><td><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></td></tr>');
+        
+                     //}
+                     iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
+                     let newMark = new google.maps.Marker({
+                        position: {lat: parseFloat(eventLat),
+                                lng: parseFloat(eventLong)
+                                },
+                         map: map,
+                         icon: iconImage,
+                         title: eventName
+                       });
+                       
+                       var infowindow = new google.maps.InfoWindow({
+                        content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image; style = "center"; height="65"; width="120";>'+ '<p style = center; color #999>' + eventName + '</p>'
+                    });
+    
+                      bindInfoWindow(newMark,map,infowindow);
+                }
+    
+                
+            }});  
+        });
+        }
+
     // Clicking the button creates the zipcode that goes to the getCoordinates
 
     $('#getAdventure').on("click", function (event) {
@@ -230,7 +367,9 @@ $(document).ready(function() {
         $('#warning').empty();
         zipErrorHandling();
         $('.zipCode').val('');
+        ticketMaster();
 
+<<<<<<< HEAD
         let classificationName = "&classificationName=";
         let familyFriendly = "";
         if(document.getElementById('cboxcon').checked) {
@@ -352,6 +491,8 @@ $(document).ready(function() {
             
         }});  
     });
+=======
+>>>>>>> 6564f28f9ee02020a9dd25a0a2020d441b405491
     });
 
     // $('#getAdventure').on("click", function (event) {
