@@ -67,7 +67,7 @@ $(document).ready(function() {
                 function callback(results, status) {
                     if(status == google.maps.places.PlacesServiceStatus.OK){
                         for (var i = 0; i < results.length; i++){
-                            markers.push(createMarker(results[i]));
+                            // markers.push(createMarker(results[i]));
                         }
                     }
                 }
@@ -338,6 +338,7 @@ $(document).ready(function() {
                    newMark.addListener('click', function() {
                     infowindow.open(map, newMark);
                   });
+
             }
 
             
@@ -472,7 +473,7 @@ function initialize() {
     function callback(results, status) {
         if(status == google.maps.places.PlacesServiceStatus.OK){
             for (var i = 0; i < results.length; i++){
-                markers.push(createMarker(results[i]));
+                // markers.push(createMarker(results[i]));
             }
         }
     }
@@ -536,26 +537,26 @@ function initialize() {
 
 
 //creates a marker for the places
-function createMarker(place) {
-    //customization of the icon happens at this line
-//   let iconImage    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(32, 32));
-    let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
-    const placeLoc = place.geometry.location;
-    marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location,
-        icon: iconImage,
-    });
+// function createMarker(place) {
+//     //customization of the icon happens at this line
+// //   let iconImage    = new google.maps.MarkerImage(place.icon, null, null, null, new google.maps.Size(32, 32));
+//     let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
+//     const placeLoc = place.geometry.location;
+//     marker = new google.maps.Marker({
+//         map: map,
+//         position: place.geometry.location,
+//         icon: iconImage,
+//     });
     
-    //opens the infoWindow to show name and other information
-    google.maps.event.addDomListener(marker, 'click', function() {
-        infoWindow.setContent(place.name);
-        infoWindow.open(map, this);
-    //   console.log(place);
+//     //opens the infoWindow to show name and other information
+//     google.maps.event.addDomListener(marker, 'click', function() {
+//         infoWindow.setContent(place.name);
+//         infoWindow.open(map, this);
+//     //   console.log(place);
 
-    });
-    return marker;
-}
+//     });
+//     return marker;
+// }
 //clears the markers when the map is moved so we don't keep leaving more and more markers
 function clearResults(markers) {
     for (let m in markers) {
