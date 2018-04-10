@@ -314,6 +314,9 @@ $(document).ready(function() {
                 let eventName = results._embedded.events[i].name;
                 let eventImage = results._embedded.events[i].images[0].url;
                 let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
+                let eventUrl = results._embedded.events["0"].url
+                let str = "Get Tickets Here";
+                let result = str.link(eventUrl, '_blank');
                 //$(".footer").prepend('<div class="media-left"><img class="media-object" alt="ticketmaster event image" src =' + eventImage+'></div>'+'<div class="media-body"><h3 class="media-heading">'+eventName+'</h3></div>');
                 //let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
                 let eventLatLong = {
@@ -336,7 +339,7 @@ $(document).ready(function() {
                    });
                    
                    var infowindow = new google.maps.InfoWindow({
-                    content: "<img src=" + eventImage + " style='height:65px;width:120px'><p>" + eventName + "</p>"
+                    content: "<img src=" + eventImage + " style='height:65px;width:120px;align-content:center'><p>" + eventName + "</p><p>" + result + "</p>"
                   });
 
                    newMark.addListener('click', function() {
