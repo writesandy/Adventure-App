@@ -344,7 +344,7 @@ $(document).ready(function() {
                    });
                    
                    var infowindow = new google.maps.InfoWindow({
-                    content: "<img src=" + eventImage + " style='height:65px;width:120px'><p>" + eventName + "</p>"
+                   content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image; style = "center"; height="65"; width="120";>'+ '<p style = center; color #999>' + eventName + '</p>'
                   });
                   bindInfoWindow(newMark,map,infowindow);
             }
