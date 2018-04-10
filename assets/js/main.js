@@ -208,7 +208,7 @@ $(document).ready(function() {
         $('#warning').empty();
         zipErrorHandling();
         $('.zipCode').val('');
-        ticketMaster();
+
 
         if(document.getElementById('cboxcon').checked) {
             console.log("Music,")
@@ -231,7 +231,7 @@ $(document).ready(function() {
             // adds includeFamily=yes to the queryString
             $('#cboxfamily').prop('checked', false);
         }
-
+        ticketMaster();
             // reset the classification name and family friendly variables for the next run through
             classificationName = "&classificationName=";
             familyFriendly = "";
