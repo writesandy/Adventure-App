@@ -105,14 +105,6 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
-    // this function is used later to append the infowindow to the eventmarker on the map 
-    function bindInfoWindow(newMark,map,infowindow){
-        newMark.addListener('click', function() {
-         infowindow.close();
-         infowindow.open(map, newMark);
-        })
-     }
-
         // this function is used later to append the infowindow to the eventmarker on the map 
         function bindInfoWindow(newMark,map,infowindow){
             newMark.addListener('click', function() {
@@ -173,6 +165,7 @@ $(document).ready(function() {
                     let eventLong = results._embedded.events[i]._embedded.venues[0].location.longitude;
                     let eventName = results._embedded.events[i].name;
                     let eventImage = results._embedded.events[i].images[0].url;
+                    let eventInfo = results._embedded.events[i].info;
                     let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
                     let eventUrl = results._embedded.events["0"].url
                     let str = "Get Tickets Here";
@@ -194,7 +187,7 @@ $(document).ready(function() {
                         title: eventName
                       });
                        infowindow = new google.maps.InfoWindow({
-                      content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image;" class = "concerts;"  id="concerts"; style = align:"middle"; height="65"; width="120";>'+ '<p style = center; color #999>' + eventName + '</p>'
+                      content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image;" class = "concerts;"  id="concerts"; style = align:"middle"; height="65"; width="120";>'+ '<a href="google.com" style = center; color #999>' + eventName + '</a><p>' + "</p>"
                      });
                      bindInfoWindow(newMark,map,infowindow);
                 }
@@ -363,6 +356,16 @@ function initialize() {
     //   console.log(event);
         map.getCenter()
     //   console.log(map.getCenter());
+
+    clearResults(markers)
+            let request = {
+                location: map.getCenter(),
+                radius: 5000,
+                types: ['zoo']
+            };
+            service.nearbySearch(request, callback);
+            return service.nearbySearch(request, callback);
+    
     })
 }
 // function callback(results, status) {
