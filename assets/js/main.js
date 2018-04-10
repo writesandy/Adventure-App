@@ -75,7 +75,7 @@ $(document).ready(function() {
                 request = {
                     location: map.getCenter(),
                     radius: 6000,
-                    types: ['zoo'],
+                    types: ['museum'],
                 };
                 // puts the locations on the map
                 service.nearbySearch(request, callback);           
@@ -120,7 +120,7 @@ $(document).ready(function() {
 //                 request = {
 //                     location: map.getCenter(),
 //                     radius: 6000,
-//                     types: ['zoo'],
+//                     types: ['museum'],
 //                 };
 //                 // puts the locations on the map
 //                 service.nearbySearch(request, callback);           
@@ -309,6 +309,7 @@ $(document).ready(function() {
                 let eventLong = results._embedded.events[i]._embedded.venues[0].location.longitude;
                 let eventName = results._embedded.events[i].name;
                 let eventImage = results._embedded.events[i].images[0].url;
+                let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
                 //$(".footer").prepend('<div class="media-left"><img class="media-object" alt="ticketmaster event image" src =' + eventImage+'></div>'+'<div class="media-body"><h3 class="media-heading">'+eventName+'</h3></div>');
                 //let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
                 let eventLatLong = {
@@ -316,18 +317,27 @@ $(document).ready(function() {
                     lng: parseInt(eventLong)
                 }
         
-                $(".footer").append('<ul class="list-group"><li class="list-group-item"><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></li></ul></div>');
-                //$(".footer").append('<tr><td><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></td></tr>');
+               // $(".footer").append('<ul class="list-group"><li class="list-group-item"><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></li></ul></div>');
+               // $(".footer").append('<tr><td><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></td></tr>');
     
                  //}
-                
-                 new google.maps.Marker({
+                 iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
+                 let newMark = new google.maps.Marker({
                     position: {lat: parseFloat(eventLat),
                             lng: parseFloat(eventLong)
                             },
                      map: map,
+                     icon: iconImage,
                      title: eventName
                    });
+
+                   var infowindow = new google.maps.InfoWindow({
+                    content: "<img src=" + eventImage + " style='height:65px;width:120px'>"
+                  });
+
+                   newMark.addListener('click', function() {
+                    infowindow.open(map, newMark);
+                  });
             }
 
             
@@ -470,7 +480,7 @@ function initialize() {
     request = {
         location: map.getCenter(),
         radius: 6000,
-        types: ['zoo'],
+        types: ['museum'],
     };
     // service.nearbySearch(request, callback);
 
@@ -487,7 +497,7 @@ function initialize() {
             newRequest = {
                 location: pos,
                 radius: 5000,
-                types: ['zoo'],
+                types: ['museum'],
             };
             service.nearbySearch(newRequest, callback);
         }, function() {
@@ -508,7 +518,7 @@ function initialize() {
         let request = {
             location: map.getCenter(),
             radius: 5000,
-            types: ['zoo']
+            types: ['museum']
         };
         service.nearbySearch(request, callback);
         return service.nearbySearch(request, callback);
