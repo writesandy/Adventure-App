@@ -364,16 +364,6 @@ function initialize() {
     //   console.log(event);
         map.getCenter()
     //   console.log(map.getCenter());
-
-    clearResults(markers)
-            let request = {
-                location: map.getCenter(),
-                radius: 5000,
-                types: ['zoo']
-            };
-            service.nearbySearch(request, callback);
-            return service.nearbySearch(request, callback);
-    
     })
 }
 // function callback(results, status) {
