@@ -226,7 +226,8 @@ $(document).ready(function() {
             infowindow.open(map, newMark);
             })
         }
-
+        let classificationName = "&classificationName=";
+        let familyFriendly = "";
         function ticketMaster(){
             
         // get the ticketmaster API key from the database    
@@ -235,7 +236,6 @@ $(document).ready(function() {
             let eventCategory = "";
             const radius = 25;
             const unit = "miles"
-    
             var today = new Date();
             var dd = today.getDate();
             var tmdd = today.getDate()+1;
@@ -253,6 +253,8 @@ $(document).ready(function() {
             if(mm<10) {
                 mm = '0'+mm
             } 
+
+           
     
             let todayString = `${yyyy}-${mm}-${dd}T00:00:00Z`
             console.log("todayString is " + todayString)
@@ -331,8 +333,6 @@ $(document).ready(function() {
         $('.zipCode').val('');
         ticketMaster();
 
-        let classificationName = "&classificationName=";
-        let familyFriendly = "";
         if(document.getElementById('cboxcon').checked) {
             console.log("Music,")
             classificationName+="Music,"
@@ -448,8 +448,9 @@ $(document).ready(function() {
                   });
                   bindInfoWindow(newMark,map,infowindow);
             }
-
-            
+            // reset the classification name and family friendly variables for the next run through
+            classificationName = "&classificationName=";
+            familyFriendly = "";
         }});  
     });
     });
@@ -464,6 +465,8 @@ $(document).ready(function() {
 
     //     $('.locationCenter').val('');
     // });
+   
+    
     
 
 // end of document ready
