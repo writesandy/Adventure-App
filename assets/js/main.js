@@ -211,6 +211,14 @@ $(document).ready(function() {
         event.preventDefault();
     });
 
+    // this function is used later to append the infowindow to the eventmarker on the map 
+    function bindInfoWindow(newMark,map,infowindow){
+        newMark.addListener('click', function() {
+         infowindow.close();
+         infowindow.open(map, newMark);
+        })
+     }
+
     // Clicking the button creates the zipcode that goes to the getCoordinates
 
     $('#getAdventure').on("click", function (event) {
@@ -338,12 +346,7 @@ $(document).ready(function() {
                    var infowindow = new google.maps.InfoWindow({
                     content: "<img src=" + eventImage + " style='height:65px;width:120px'><p>" + eventName + "</p>"
                   });
-
-                   newMark.addListener('click', function() {
-                    infowindow.close();
-                    infowindow.open(map, newMark);
-                  });
-
+                  bindInfoWindow(newMark,map,infowindow);
             }
 
             
