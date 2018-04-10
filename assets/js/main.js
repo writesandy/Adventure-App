@@ -75,7 +75,7 @@ $(document).ready(function() {
                 request = {
                     location: map.getCenter(),
                     radius: 6000,
-                    types: ['museum'],
+                    // types: ['museum'],
                 };
                 // puts the locations on the map
                 service.nearbySearch(request, callback);           
@@ -470,7 +470,7 @@ function initialize() {
     request = {
         location: map.getCenter(),
         radius: 6000,
-        types: ['museum'],
+        // types: ['museum'],
     };
     // service.nearbySearch(request, callback);
 
@@ -487,7 +487,7 @@ function initialize() {
             newRequest = {
                 location: pos,
                 radius: 5000,
-                types: ['museum'],
+                // types: ['museum'],
             };
             service.nearbySearch(newRequest, callback);
         }, function() {
@@ -508,7 +508,7 @@ function initialize() {
         let request = {
             location: map.getCenter(),
             radius: 5000,
-            types: ['museum']
+            // types: ['museum']
         };
         service.nearbySearch(request, callback);
         return service.nearbySearch(request, callback);
