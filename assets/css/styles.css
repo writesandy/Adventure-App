@@ -16,6 +16,7 @@ p {
     font-family: sans-serif;
     background: #FF3900;
     margin-left: 5px;
+    padding-top: 10px;
 
 }
 #state {
@@ -178,7 +179,7 @@ SIDEBAR STYLE
 
 #sidebar ul.components {
     padding: 0px;
-    border-bottom: 1px solid #FF3900;
+    
     
 }
 
@@ -444,6 +445,10 @@ MEDIAQUERIES
         
     } 
 
+    #sidebar p {
+        margin: 0;
+    }
+
     h1 {
         font-size: 1.7em;
     font-weight: 300;
@@ -477,8 +482,8 @@ MEDIAQUERIES
         position: fixed;
         bottom: 10%;
         width: 40%;
-        margin-left: 30%;
-        margin-right:30%;
+        margin-left: 25%;
+        margin-right: 35%;
     }
 
 
@@ -506,3 +511,11 @@ MEDIAQUERIES
         border-color: #FF3900;
      }
 }
+
+@media (min-width: 769px) {
+ 
+    .results {
+        margin-left: 310px;
+    }
+    
+ }
