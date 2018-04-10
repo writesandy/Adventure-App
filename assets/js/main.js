@@ -229,18 +229,22 @@ $(document).ready(function() {
             console.log("Music,")
             classificationName+="Music,"
             // adds "Music" to classificationName array
+            $('#cboxcon').prop('checked', false);
         }
         if(document.getElementById('cboxsport').checked) {
             classificationName+="Sports,"
+            $('#cboxsport').prop('checked', false);
         }
         if(document.getElementById('cboxart').checked) {
             classificationName+="Arts,"
             // adds  "Arts" to classificationName array
+            $('#cboxart').prop('checked', false);
         }
         if(document.getElementById('cboxfamily').checked) {
             console.log("family checked")
             familyFriendly = "&includeFamily=yes";
             // adds includeFamily=yes to the queryString
+            $('#cboxfamily').prop('checked', false);
         }
     // });
         console.log("classificationName is " + classificationName)
