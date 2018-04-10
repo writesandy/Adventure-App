@@ -1,5 +1,4 @@
 
-
 'use strict';
 
 $(document).ready(function() {
@@ -322,7 +321,8 @@ $(document).ready(function() {
                     let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
                     let eventUrl = results._embedded.events["0"].url
                     let str = "Get Tickets Here";
-                    let result = str.link(eventUrl, '_blank');
+                    let result = str.link(eventUrl);
+                    // let result = $("p").append(`<a  target="_blank" href='${eventUrl}'>${str}</a>`)
                     //$(".footer").prepend('<div class="media-left"><img class="media-object" alt="ticketmaster event image" src =' + eventImage+'></div>'+'<div class="media-body"><h3 class="media-heading">'+eventName+'</h3></div>');
                     //let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
                     let eventLatLong = {
@@ -530,7 +530,7 @@ function initialize() {
     // definitions
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 44.986656, lng: -93.258133},
-        zoom: 13,
+        zoom: 12,
         styles: [
             {elementType: 'geometry', stylers: [{color: '#172436'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
