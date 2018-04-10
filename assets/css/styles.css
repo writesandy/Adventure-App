@@ -462,12 +462,6 @@ MEDIAQUERIES
     }
 
 
-    
-
-    #getAdventure {
-        display: hidden;
-    }
-
     .form-check {
         background: #FF3900;
         opacity: 60%;
@@ -492,22 +486,3 @@ MEDIAQUERIES
         border-color: #FF3900;
      }
 }
-
-@media (min-width: 769px) {
-   
-    
-
-   
-
-    #buttons {
-        display: none;
-        visibility: hidden;
-    }
-    .results {
-        margin-left: 310px;
-    }
-    
-    
-}
-/* <--!we want the top button go away on mobile -->
-<!--we want the bottom button to stay on mobile--> */
