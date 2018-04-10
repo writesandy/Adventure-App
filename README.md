@@ -18,7 +18,7 @@
 (This takes any changes from MASTER and merges them BACK TO develop)
 
 # GroupProject Adventure App
-This is our Adventure App for Adventues to have today
+This is our Adventure App for Adventures to have today
 Saundra Rikki Honnold Brandon Vreeman Joe Finnegan Thomas Romano
 
 Our Project:
