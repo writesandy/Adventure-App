@@ -316,8 +316,8 @@ $(document).ready(function() {
                     lng: parseInt(eventLong)
                 }
         
-               // $(".footer").append('<ul class="list-group"><li class="list-group-item"><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></li></ul></div>');
-                $(".footer").append('<tr><td><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></td></tr>');
+                $(".footer").append('<ul class="list-group"><li class="list-group-item"><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></li></ul></div>');
+                //$(".footer").append('<tr><td><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></td></tr>');
     
                  //}
                 
