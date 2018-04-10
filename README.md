@@ -18,6 +18,7 @@
 (This takes any changes from MASTER and merges them BACK TO develop)
 
 # GroupProject Adventure App
+<<<<<<< HEAD
 This is our Adventure App for Things to do today
 Saundra Rikki Brandon Joe Thomas
 
@@ -26,6 +27,20 @@ Enter your city or state
 We will find something fun for you to do today
 You'll go do it and have a great time!
 
+=======
+This is our Adventure App for Adventures to have today
+Saundra Rikki Honnold Brandon Vreeman Joe Finnegan Thomas Romano
+
+Our Project:
+Enter your city or zipcode
+We will find something fun for you to do today
+You'll go do it and have a great time!
+
+# APIS USED
+- Google Geocode
+-Ticketmaster Event Finder 
+
+>>>>>>> 949a1c8fe224336b0f9be617c90db34f8c1caada
  
  
 
