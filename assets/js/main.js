@@ -309,6 +309,7 @@ $(document).ready(function() {
                 let eventLong = results._embedded.events[i]._embedded.venues[0].location.longitude;
                 let eventName = results._embedded.events[i].name;
                 let eventImage = results._embedded.events[i].images[0].url;
+                let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
                 //$(".footer").prepend('<div class="media-left"><img class="media-object" alt="ticketmaster event image" src =' + eventImage+'></div>'+'<div class="media-body"><h3 class="media-heading">'+eventName+'</h3></div>');
                 //let eventURL = results._embedded.events[i]._embedded.attractions[0].url;
                 let eventLatLong = {
@@ -326,6 +327,7 @@ $(document).ready(function() {
                             lng: parseFloat(eventLong)
                             },
                      map: map,
+                     icon: iconImage,
                      title: eventName
                    });
             }
