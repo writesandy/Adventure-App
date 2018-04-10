@@ -166,6 +166,8 @@ $(document).ready(function() {
                     let eventName = results._embedded.events[i].name;
                     let eventImage = results._embedded.events[i].images[0].url;
                     let eventInfo = results._embedded.events[i].info;
+                    let venueURL = results._embedded.events[i]._embedded.venues[0].url;
+                    let venueName = results._embedded.events[i]._embedded.venues[0].name;
                     let iconImage = new google.maps.MarkerImage('./assets/img/icon1.png', null, null, null, new google.maps.Size(45, 45));
                     let eventUrl = results._embedded.events["0"].url
                     let str = "Get Tickets Here";
@@ -187,7 +189,7 @@ $(document).ready(function() {
                         title: eventName
                       });
                        infowindow = new google.maps.InfoWindow({
-                      content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image;" class = "concerts;"  id="concerts"; style = align:"middle"; height="65"; width="120";>'+ '<a href="google.com" style = center; color #999>' + eventName + '</a><p>' + "</p>"
+                      content: '<img src="' + eventImage +'"' + 'alt="TicketMaster Image;" class = "concerts;"  id="concerts"; style = align:"middle"; height="65"; width="120";>'+ '<a href="' + venueURL + '" style = center; color #999>' + eventName + '</a><p> at ' + venueName +"</p>"
                      });
                      bindInfoWindow(newMark,map,infowindow);
                 }
