@@ -315,19 +315,19 @@ $(document).ready(function() {
                     lat: parseInt(eventLat),
                     lng: parseInt(eventLong)
                 }
-                //console.log("the name of event number " + [i] + " is " + eventName)
+        
                // $(".footer").append('<ul class="list-group"><li class="list-group-item"><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></li></ul></div>');
                 $(".footer").append('<tr><td><img class="media-object" alt="ticketmaster event image" src ="' + eventImage+'"</img><h3>'+eventName+'</h3></td></tr>');
-                //console.log("the latlong for event number " + [i] + " is " + eventLatLong);
+    
                  //}
                 
-                // var newMarker = new google.maps.Marker({
-                //     position: eventLatLong,
-                //     map: map,
-                //     title: eventName
-                //   });
-                //   markers.push(marker);
-                //   console.log("this marker has added tot he array");
+                 new google.maps.Marker({
+                    position: {lat: parseFloat(eventLat),
+                            lng: parseFloat(eventLong)
+                            },
+                     map: map,
+                     title: eventName
+                   });
             }
 
             
