@@ -1,6 +1,7 @@
 
 # GroupProject Adventure App
 This is our Adventure App for Things to do today
+**Teammates**
 Saundra Rikki Brandon Joe Thomas
 
 Our Project:
@@ -62,6 +63,9 @@ Appending to the DOM in a more beautiful way
 Contact us form 
 Investigate Sign in With Google Account for a website.
 Test Firebase Authentication methods - this could be used to create a user adventure and save for later.
+
+#Retrospective#
+Check API in advance to be sure it doesnt mandate -CURL or does allow the AJAX call from a separate webpage
 
 
 
