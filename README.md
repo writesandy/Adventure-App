@@ -1,17 +1,15 @@
 
 # GroupProject Adventure App
 This is our Adventure App for Things to do today
-**Teammates**
-Saundra Rikki Brandon Joe Thomas
 
 Our Project:
 Enter your city or state
 We will find something fun for you to do today
 You'll go do it and have a great time!
 
-=======
+
 This is our Adventure App for Adventures to have today
-Saundra Petersen Rikki Honnold Brandon Vreeman Joe Finnegan Thomas Romano
+#Teammates Saundra Petersen Rikki Honnold Brandon Vreeman Joe Finnegan Thomas Romano
 
 # Our Project:
 Enter your city or zipcode
