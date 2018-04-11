@@ -50,7 +50,7 @@ The markers will have an event appear,an image of the band, the name of the even
 
 
 
-#Stretch Goals: 
+# Stretch Goals: 
 City and zipcode input
 Road trip feature to pick up your friends, stop and find something to eat
 Make city feature work instead of just zipcode
@@ -62,7 +62,7 @@ Contact us form
 Investigate Sign in With Google Account for a website.
 Test Firebase Authentication methods - this could be used to create a user adventure and save for later.
 
-#Retrospective#
+# Retrospective
 Check API in advance to be sure it doesnt mandate -CURL or does allow the AJAX call from a separate webpage
 
 
