@@ -1,21 +1,3 @@
-# IMPORTANT: HOW TO WORK ON THE CODE
-***Please do all your work on the develop branch, and then merge those changes into master***
-1. git checkout develop
-2. git pull 
-3. Make your changes where you need them
-4. Git add (the files you edited) 
-5. Git commit -m "your commit message" 
-6. git push 
-
-***If your change is good to go into master branch***
-1. git checkout master 
-2. git merge develop 
-(This takes any changes from DEVELOP and merges them IN TO master) 
-
-***If you accidentally make changes directly to master, just make sure to pull them BACK to dev***
-1. git checkout develop
-2. git merge master 
-(This takes any changes from MASTER and merges them BACK TO develop)
 
 # GroupProject Adventure App
 This is our Adventure App for Things to do today
@@ -28,23 +10,18 @@ You'll go do it and have a great time!
 
 =======
 This is our Adventure App for Adventures to have today
-Saundra Rikki Honnold Brandon Vreeman Joe Finnegan Thomas Romano
+Saundra Petersen Rikki Honnold Brandon Vreeman Joe Finnegan Thomas Romano
 
-Our Project:
+# Our Project:
 Enter your city or zipcode
 We will find something fun for you to do today
 You'll go do it and have a great time!
 
 # APIS USED
-- Google Geocode
+- Google Geocode API
+-Google Places
+- Google Maps
 -Ticketmaster Event Finder 
-
->>>>>>> 949a1c8fe224336b0f9be617c90db34f8c1caada
- 
- 
-
-Our APIs:
- 
 
 **Task Breakdown:**
 
@@ -56,16 +33,36 @@ Codepen.io for animation and titles
 
 
 WireFrame/Layout: Rikki/Thom
-User Interface Design: 
+User Interface Design: Thom
 User Inputs: Rikki 
 Content Writing: Rikki & Saundra
 
 Back End Captain: Joe
 Javascript: Joe
-Ajax: 
+Ajax: Saundra 
 API Research: Saundra, Joe
-Database:
+Database: Joe
 
 Debugging: ALL 
 
-Rough Sketch of our outline - mobile-first
+There is a map that will appear on the page
+Once the user enters their zipcode or hits enter,  they will see markers appear on the map
+The markers will have an event appear,an image of the band, the name of the event, with an embedded link to buying tickets at that venue
+
+
+
+#Stretch Goals: 
+City and zipcode input
+Road trip feature to pick up your friends, stop and find something to eat
+Make city feature work instead of just zipcode
+Auto-fill and pre-populate “eg: Springfield VS Springfield IL vs Springfield St”
+Build animated images in the app
+Filter a “joke” image/giphy if nothing to do in your area comes up
+Appending to the DOM in a more beautiful way
+Contact us form 
+Investigate Sign in With Google Account for a website.
+Test Firebase Authentication methods - this could be used to create a user adventure and save for later.
+
+
+
+
