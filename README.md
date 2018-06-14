@@ -1,5 +1,5 @@
 
-# <a href="https://writesandy.github.io/Adventure-App/</a>">Adventure-App</a>
+# <a href="https://writesandy.github.io/Adventure-App/">Adventure-App</a>
 <br>
 Enter your city or zipcode into the Adventure App for things to do today on TicketMaster.<br><br>
 
